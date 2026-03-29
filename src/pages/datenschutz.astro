@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { url } from '../utils/site';
+---
+
+<BaseLayout
+  title="Datenschutzerklärung"
+  description="Datenschutzerklärung für Make Your Own XYZ gemäß DSGVO."
+  canonicalPath="/datenschutz"
+>
+  <div class="container-page py-8 sm:py-12">
+    <Breadcrumbs items={[{ label: 'Datenschutz' }]} />
+
+    <article class="mx-auto max-w-2xl">
+      <h1 class="heading-1 !text-2xl sm:!text-3xl">Datenschutzerklärung</h1>
+
+      <div class="mt-6 space-y-6 text-sm text-body leading-relaxed sm:text-base">
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">1. Verantwortlicher</h2>
+          <p class="mt-2">
+            Belkis Aslani<br />
+            Vogelsangstr. 32<br />
+            71691 Freiberg am Neckar<br />
+            E-Mail: <a href="mailto:belkis.aslani@gmail.com" class="underline" style="color: rgb(var(--color-accent));">belkis.aslani@gmail.com</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">2. Allgemeines zur Datenverarbeitung</h2>
+          <p class="mt-2">
+            Diese Website ist eine statisch generierte Seite, die auf GitHub Pages gehostet wird. Es werden keine Datenbanken betrieben, keine Benutzerkonten angelegt und keine personenbezogenen Daten durch die Website selbst erhoben oder gespeichert.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">3. Hosting</h2>
+          <p class="mt-2">
+            Diese Website wird über GitHub Pages gehostet, einem Dienst der GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA. GitHub kann beim Aufruf dieser Seiten technische Informationen einschließlich Ihrer IP-Adresse erfassen. Weitere Informationen finden Sie in der
+            <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">Datenschutzerklärung von GitHub</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">4. Google Fonts</h2>
+          <p class="mt-2">
+            Diese Website nutzt Schriftarten von Google Fonts, einem Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Beim Aufruf der Website wird eine Verbindung zu Google-Servern hergestellt, um die Schriftart „Inter" zu laden. Dabei kann Ihre IP-Adresse an Google übermittelt werden. Weitere Informationen finden Sie in der
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">Datenschutzerklärung von Google</a>.
+          </p>
+          <p class="mt-1">
+            Die Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einheitlichen Darstellung der Website).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">5. Externe Links</h2>
+          <p class="mt-2">
+            Diese Website enthält Links zu externen Websites (Tutorial-Quellen). Beim Anklicken dieser Links verlassen Sie diese Website. Für die Datenschutzpraktiken der verlinkten Websites bin ich nicht verantwortlich.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">6. Lokale Speicherung (Local Storage)</h2>
+          <p class="mt-2">
+            Diese Website speichert Ihre Einstellung für den Dark Mode im Local Storage Ihres Browsers. Dies ist ein rein lokaler Vorgang auf Ihrem Gerät — es werden keine Daten an Server übermittelt. Sie können diese Daten jederzeit über die Browsereinstellungen löschen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">7. Ihre Rechte</h2>
+          <p class="mt-2">
+            Sie haben gemäß DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Da diese Website keine personenbezogenen Daten selbst erhebt, sind diese Rechte primär gegenüber den Drittanbietern (GitHub, Google) relevant. Bei Fragen wenden Sie sich bitte an:
+            <a href="mailto:belkis.aslani@gmail.com" class="underline" style="color: rgb(var(--color-accent));">belkis.aslani@gmail.com</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">8. Änderungen</h2>
+          <p class="mt-2">
+            Diese Datenschutzerklärung kann gelegentlich aktualisiert werden, um rechtlichen Anforderungen zu entsprechen oder Änderungen an der Website widerzuspiegeln.
+          </p>
+        </section>
+
+      </div>
+    </article>
+  </div>
+</BaseLayout>

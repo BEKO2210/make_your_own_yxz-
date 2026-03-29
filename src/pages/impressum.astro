@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { url } from '../utils/site';
+---
+
+<BaseLayout
+  title="Impressum"
+  description="Impressum und Angaben gemäß § 5 TMG für Make Your Own XYZ."
+  canonicalPath="/impressum"
+>
+  <div class="container-page py-8 sm:py-12">
+    <Breadcrumbs items={[{ label: 'Impressum' }]} />
+
+    <article class="mx-auto max-w-2xl">
+      <h1 class="heading-1 !text-2xl sm:!text-3xl">Impressum</h1>
+
+      <div class="mt-6 space-y-6 text-sm text-body leading-relaxed sm:text-base">
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Angaben gemäß § 5 TMG</h2>
+          <p class="mt-2">
+            Belkis Aslani<br />
+            Vogelsangstr. 32<br />
+            71691 Freiberg am Neckar<br />
+            Deutschland
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Kontakt</h2>
+          <p class="mt-2">
+            E-Mail: <a href="mailto:belkis.aslani@gmail.com" class="underline" style="color: rgb(var(--color-accent));">belkis.aslani@gmail.com</a><br />
+            Telefon: <a href="tel:+4917681462526" class="underline" style="color: rgb(var(--color-accent));">0176 81462526</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+          <p class="mt-2">
+            Belkis Aslani<br />
+            Vogelsangstr. 32<br />
+            71691 Freiberg am Neckar
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Haftungsausschluss</h2>
+
+          <h3 class="mt-3 text-sm font-semibold" style="color: rgb(var(--color-text));">Haftung für Inhalte</h3>
+          <p class="mt-1">
+            Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          </p>
+
+          <h3 class="mt-3 text-sm font-semibold" style="color: rgb(var(--color-text));">Haftung für Links</h3>
+          <p class="mt-1">
+            Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.
+          </p>
+
+          <h3 class="mt-3 text-sm font-semibold" style="color: rgb(var(--color-text));">Urheberrecht</h3>
+          <p class="mt-1">
+            Die Tutorial-Daten dieser Website stammen aus dem Open-Source-Repository
+            <a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">codecrafters-io/build-your-own-x</a>,
+            welches unter der <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">CC0-Lizenz</a> (Public Domain) veröffentlicht wurde.
+            Das ursprüngliche Repository wurde von Daniel Stefanovic erstellt und wird von CodeCrafters, Inc. gepflegt.
+          </p>
+          <p class="mt-1">
+            Die Gestaltung und Umsetzung dieser Website als Webplattform wurde von Belkis Aslani erstellt, mit dem Ziel, Wissen verständlicher und zugänglicher zu machen.
+          </p>
+        </section>
+
+      </div>
+    </article>
+  </div>
+</BaseLayout>

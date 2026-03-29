@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { SITE } from '../utils/site';
+import { SITE, url } from '../utils/site';
 import { breadcrumbSchema } from '../utils/seo';
 import { tutorials, categories, languages } from '../utils/helpers';
 
@@ -10,7 +10,7 @@ const schemas = [breadcrumbSchema([{ name: 'About' }])];
 
 <BaseLayout
   title="About"
-  description="Learn about Make Your Own XYZ — a curated directory of build-your-own tutorials sourced from the open-source community."
+  description="Über Make Your Own XYZ — eine kuratierte Plattform für Build-Your-Own-Tutorials, erstellt von Belkis Aslani."
   canonicalPath="/about"
   schemas={schemas}
 >
@@ -21,52 +21,79 @@ const schemas = [breadcrumbSchema([{ name: 'About' }])];
       <h1 class="heading-1 !text-2xl sm:!text-3xl">About This Project</h1>
 
       <div class="mt-6 space-y-5 text-sm text-body leading-relaxed sm:text-base">
+
         <p>
-          <strong style="color: rgb(var(--color-text));">{SITE.name}</strong> is a web interface for the popular open-source repository
-          <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">codecrafters-io/build-your-own-x</a>,
-          which curates step-by-step tutorials for rebuilding real technologies from scratch.
+          <strong style="color: rgb(var(--color-text));">{SITE.name}</strong> wurde von
+          <strong style="color: rgb(var(--color-text));">Belkis Aslani</strong> erstellt, mit dem Ziel,
+          Wissen verständlicher und für alle zugänglicher zu machen.
         </p>
 
         <p>
-          The goal is simple: make these {tutorials.length}+ tutorials easier to discover, browse, and filter. Instead of scrolling through a long README, you can search by category, programming language, or keyword.
+          Diese Website ist eine Weboberfläche für das bekannte Open-Source-Repository
+          <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">codecrafters-io/build-your-own-x</a>,
+          das Schritt-für-Schritt-Tutorials kuratiert, mit denen man echte Technologien von Grund auf nachbauen kann.
+        </p>
+
+        <p>
+          Statt durch eine lange README-Datei zu scrollen, kann man hier {tutorials.length}+ Tutorials bequem nach
+          Kategorie, Programmiersprache oder Stichwort durchsuchen und filtern.
         </p>
 
         <div class="card p-5">
-          <h2 class="text-sm font-semibold" style="color: rgb(var(--color-text));">By the Numbers</h2>
+          <h2 class="text-sm font-semibold" style="color: rgb(var(--color-text));">Auf einen Blick</h2>
           <dl class="mt-3 grid grid-cols-3 gap-4 text-center">
             <div>
               <dt class="text-xs text-caption">Tutorials</dt>
               <dd class="text-xl font-bold sm:text-2xl" style="color: rgb(var(--color-text));">{tutorials.length}+</dd>
             </div>
             <div>
-              <dt class="text-xs text-caption">Categories</dt>
+              <dt class="text-xs text-caption">Kategorien</dt>
               <dd class="text-xl font-bold sm:text-2xl" style="color: rgb(var(--color-text));">{categories.length}</dd>
             </div>
             <div>
-              <dt class="text-xs text-caption">Languages</dt>
+              <dt class="text-xs text-caption">Sprachen</dt>
               <dd class="text-xl font-bold sm:text-2xl" style="color: rgb(var(--color-text));">{languages.length}</dd>
             </div>
           </dl>
         </div>
 
-        <h2 class="!mt-8 text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Philosophy</h2>
+        <h2 class="!mt-8 text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Philosophie</h2>
         <p>
-          Building things from scratch is one of the most effective ways to learn. When you implement a database, a compiler, or an operating system yourself, you gain insights that no amount of documentation reading can provide.
+          Dinge von Grund auf selbst zu bauen ist eine der effektivsten Methoden, um wirklich zu lernen.
+          Wer eine Datenbank, einen Compiler oder ein Betriebssystem selbst implementiert, gewinnt Einblicke,
+          die kein noch so gutes Tutorial allein vermitteln kann.
         </p>
         <blockquote class="border-l-2 pl-4 italic text-caption" style="border-color: rgb(var(--color-accent) / 0.4);">
           "What I cannot create, I do not understand." — Richard Feynman
         </blockquote>
 
-        <h2 class="!mt-8 text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Attribution</h2>
+        <h2 class="!mt-8 text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Erstellt von</h2>
         <p>
-          The original <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">build-your-own-x</a> repository was created by
-          <a href="https://github.com/danistefanovic" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">Daniel Stefanovic</a>
-          and is now maintained by <a href="https://codecrafters.io" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">CodeCrafters, Inc.</a>
-          It is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">CC0</a> (public domain).
+          Diese Website wurde von <strong style="color: rgb(var(--color-text));">Belkis Aslani</strong> konzipiert, gestaltet und entwickelt —
+          mit dem Anspruch, jedes Wissen verständlicher zu machen und Lernressourcen für Entwickler weltweit besser zugänglich zu präsentieren.
         </p>
         <p>
-          This website is a community presentation of that data. All tutorial links point to their original sources.
+          Kontakt: <a href="mailto:belkis.aslani@gmail.com" class="underline" style="color: rgb(var(--color-accent));">belkis.aslani@gmail.com</a>
         </p>
+
+        <h2 class="!mt-8 text-base font-semibold sm:text-lg" style="color: rgb(var(--color-text));">Quellenangabe</h2>
+        <p>
+          Das Original-Repository <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">build-your-own-x</a>
+          wurde von <a href="https://github.com/danistefanovic" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">Daniel Stefanovic</a> erstellt
+          und wird von <a href="https://codecrafters.io" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">CodeCrafters, Inc.</a> gepflegt.
+          Es steht unter der <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">CC0-Lizenz</a> (Public Domain).
+        </p>
+        <p>
+          Ein herzliches Dankeschön an Daniel Stefanovic, CodeCrafters und die gesamte Community, die diese wertvolle Sammlung über die Jahre zusammengetragen haben. Ohne diese großartige Vorarbeit wäre diese Website nicht möglich gewesen.
+        </p>
+        <p>
+          Alle Tutorial-Links verweisen auf die jeweiligen Originalquellen.
+        </p>
+
+        <div class="mt-4 flex flex-col gap-2 text-xs text-caption xs:flex-row xs:gap-4">
+          <a href={url('/impressum')} class="underline">Impressum</a>
+          <a href={url('/datenschutz')} class="underline">Datenschutzerklärung</a>
+        </div>
       </div>
     </article>
   </div>
