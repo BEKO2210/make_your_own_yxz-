@@ -3,65 +3,54 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SearchFilter from '../../components/SearchFilter.astro';
 import TutorialList from '../../components/TutorialList.astro';
-import { languages, categories, getTutorialsByLanguage, getLanguageBySlug } from '../../utils/helpers';
+import {
+  languages,
+  categories,
+  getTutorialsByLanguage,
+  getLanguageBySlug,
+} from '../../utils/helpers';
+import { collectionPageSchema, breadcrumbSchema } from '../../utils/seo';
 
 export function getStaticPaths() {
-  return languages.map((lang) => ({
-    params: { slug: lang.slug },
-  }));
+  return languages.map((lang) => ({ params: { slug: lang.slug } }));
 }
 
 const { slug } = Astro.params;
 const language = getLanguageBySlug(slug!);
-
-if (!language) {
-  return Astro.redirect('/languages');
-}
+if (!language) return Astro.redirect('/languages');
 
 const langTutorials = getTutorialsByLanguage(slug!);
 
-// Get categories available for this language
+// Categories available for this language
 const langCategories = [...new Set(langTutorials.map((t) => t.categorySlug))]
   .map((catSlug) => {
     const cat = categories.find((c) => c.slug === catSlug);
     return cat ? { slug: cat.slug, name: cat.name } : null;
   })
-  .filter(Boolean)
-  .sort((a, b) => a!.name.localeCompare(b!.name)) as { slug: string; name: string }[];
+  .filter((c): c is { slug: string; name: string } => c !== null)
+  .sort((a, b) => a.name.localeCompare(b.name));
 
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: `${language.name} Build-Your-Own Tutorials`,
-  description: `${langTutorials.length} step-by-step tutorials for building projects from scratch in ${language.name}.`,
-  url: `https://makeyourownxyz.com/languages/${slug}`,
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://makeyourownxyz.com' },
-      { '@type': 'ListItem', position: 2, name: 'Languages', item: 'https://makeyourownxyz.com/languages' },
-      { '@type': 'ListItem', position: 3, name: language.name },
-    ],
-  },
-  mainEntity: {
-    '@type': 'ItemList',
-    numberOfItems: langTutorials.length,
-    itemListElement: langTutorials.map((t, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: t.title,
-      url: t.url,
-    })),
-  },
-};
+const schemas = [
+  collectionPageSchema({
+    name: `${language.name} Build-Your-Own Tutorials`,
+    description: `${langTutorials.length} tutorials for building projects from scratch in ${language.name}.`,
+    pathname: `/languages/${slug}`,
+    items: langTutorials.map((t) => ({ name: t.title, url: t.url })),
+  }),
+  breadcrumbSchema([
+    { name: 'Languages', pathname: '/languages' },
+    { name: language.name },
+  ]),
+];
 ---
 
 <BaseLayout
   title={`${language.name} Tutorials`}
   description={`Explore ${langTutorials.length} step-by-step tutorials for building projects from scratch in ${language.name}. Build databases, compilers, games, and more.`}
-  schema={schema}
+  canonicalPath={`/languages/${slug}`}
+  schemas={schemas}
 >
-  <div class="container-page py-10 sm:py-14">
+  <div class="container-page py-8 sm:py-12">
     <Breadcrumbs
       items={[
         { label: 'Languages', href: '/languages' },
@@ -69,9 +58,9 @@ const schema = {
       ]}
     />
 
-    <div class="mb-8">
-      <h1 class="prose-heading text-3xl sm:text-4xl">{language.name} Tutorials</h1>
-      <p class="mt-2 text-slate-500">
+    <div class="mb-6">
+      <h1 class="heading-1 !text-2xl sm:!text-3xl lg:!text-4xl">{language.name} Tutorials</h1>
+      <p class="mt-2 text-sm text-body">
         {langTutorials.length} tutorials across {langCategories.length} categories
       </p>
     </div>

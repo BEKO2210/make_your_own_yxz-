@@ -4,105 +4,101 @@ import SectionHeading from '../components/SectionHeading.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import LanguageBadge from '../components/LanguageBadge.astro';
 import TutorialCard from '../components/TutorialCard.astro';
-import { tutorials, categories, languages, getFeaturedCategories, getTopLanguages } from '../utils/helpers';
+import { SITE } from '../utils/site';
+import { websiteSchema } from '../utils/seo';
+import {
+  tutorials,
+  categories,
+  getFeaturedCategories,
+  getTopLanguages,
+} from '../utils/helpers';
 
 const featuredCategories = getFeaturedCategories();
 const topLanguages = getTopLanguages();
 
-// Pick a diverse selection of tutorials for "Featured"
-const featuredSlugs = ['database', 'programming-language', 'operating-system', 'game', 'neural-network', 'web-server'];
+// Curated selection: one tutorial from each major category
+const featuredSlugs = [
+  'database',
+  'programming-language',
+  'operating-system',
+  'game',
+  'neural-network',
+  'web-server',
+];
 const featuredTutorials = featuredSlugs
   .flatMap((slug) => tutorials.filter((t) => t.categorySlug === slug).slice(0, 1))
   .slice(0, 6);
 
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Make Your Own XYZ',
-  description: 'A curated directory of 350+ tutorials for learning by building. Build your own database, programming language, game, and more.',
-  url: 'https://makeyourownxyz.com',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://makeyourownxyz.com/categories?q={search_term_string}',
-    'query-input': 'required name=search_term_string',
-  },
-};
+const schema = websiteSchema();
 ---
 
 <BaseLayout
-  title="Make Your Own XYZ"
-  description="A curated directory of 350+ step-by-step tutorials for learning by building. Build your own database, programming language, game, neural network, and more from scratch."
-  schema={schema}
+  title={SITE.name}
+  description={SITE.description}
+  canonicalPath="/"
+  schemas={[schema]}
 >
-  <!-- Hero -->
-  <section class="relative overflow-hidden border-b border-slate-100 bg-gradient-to-b from-brand-50/50 to-white">
-    <div class="container-page py-16 sm:py-24 lg:py-28">
-      <div class="mx-auto max-w-3xl text-center">
-        <h1 class="prose-heading text-4xl sm:text-5xl lg:text-6xl !leading-tight">
-          Learn by <span class="text-brand-600">Building</span>
+  <!-- ─── Hero ─────────────────────────────────────────── -->
+  <section class="relative overflow-hidden" style="border-bottom: 1px solid rgb(var(--color-border));">
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgb(var(--color-accent-soft)), rgb(var(--color-bg)));" aria-hidden="true"></div>
+    <div class="container-page relative py-12 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-2xl text-center">
+        <h1 class="heading-1">
+          Learn by <span style="color: rgb(var(--color-accent));">Building</span>
         </h1>
-        <p class="mt-4 text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
-          A curated collection of <strong class="text-slate-700">{tutorials.length}+</strong> step-by-step tutorials to recreate your favorite technologies from scratch, across <strong class="text-slate-700">{categories.length}</strong> categories and <strong class="text-slate-700">{languages.length}</strong> programming languages.
+        <p class="mt-4 text-base text-body sm:text-lg" style="max-width: 48ch; margin-inline: auto;">
+          A curated collection of <strong style="color: rgb(var(--color-text));">{tutorials.length}+</strong> step-by-step
+          tutorials to recreate your favorite technologies from scratch.
         </p>
-        <blockquote class="mt-6 text-sm italic text-slate-400">
+        <blockquote class="mt-4 text-xs italic text-caption sm:text-sm">
           "What I cannot create, I do not understand." — Richard Feynman
         </blockquote>
-        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href="/categories"
-            class="inline-flex items-center rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-brand-700 focus-visible:outline-brand-600 transition-colors"
-          >
-            Browse Categories
-          </a>
-          <a
-            href="/languages"
-            class="inline-flex items-center rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
-          >
-            Browse by Language
-          </a>
+        <div class="mt-6 flex flex-col items-center gap-3 xs:flex-row xs:justify-center">
+          <a href="/categories" class="btn-primary w-full xs:w-auto">Browse Categories</a>
+          <a href="/languages" class="btn-secondary w-full xs:w-auto">Browse by Language</a>
         </div>
       </div>
 
-      <!-- Stats row -->
-      <div class="mx-auto mt-12 grid max-w-2xl grid-cols-3 gap-6 text-center">
+      <!-- Stats -->
+      <div class="mx-auto mt-10 grid max-w-sm grid-cols-3 gap-4 text-center sm:max-w-md sm:gap-6">
         <div>
-          <p class="text-2xl sm:text-3xl font-bold text-slate-900">{tutorials.length}+</p>
-          <p class="mt-1 text-xs sm:text-sm text-slate-500">Tutorials</p>
+          <p class="text-xl font-bold sm:text-2xl" style="color: rgb(var(--color-text));">{tutorials.length}+</p>
+          <p class="text-xs text-caption">Tutorials</p>
         </div>
         <div>
-          <p class="text-2xl sm:text-3xl font-bold text-slate-900">{categories.length}</p>
-          <p class="mt-1 text-xs sm:text-sm text-slate-500">Categories</p>
+          <p class="text-xl font-bold sm:text-2xl" style="color: rgb(var(--color-text));">{categories.length}</p>
+          <p class="text-xs text-caption">Categories</p>
         </div>
         <div>
-          <p class="text-2xl sm:text-3xl font-bold text-slate-900">{languages.length}</p>
-          <p class="mt-1 text-xs sm:text-sm text-slate-500">Languages</p>
+          <p class="text-xl font-bold sm:text-2xl" style="color: rgb(var(--color-text));">{topLanguages.length}+</p>
+          <p class="text-xs text-caption">Languages</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Categories -->
-  <section class="container-page py-16 sm:py-20">
+  <!-- ─── Popular Categories ───────────────────────────── -->
+  <section class="container-page py-12 sm:py-16">
     <SectionHeading
       title="Popular Categories"
       subtitle="Explore tutorials organized by what you want to build"
       href="/categories"
     />
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div class="grid gap-3 grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {featuredCategories.map((cat) => (
         <CategoryCard category={cat} />
       ))}
     </div>
   </section>
 
-  <!-- Featured Tutorials -->
-  <section class="border-t border-slate-100 bg-slate-50/50">
-    <div class="container-page py-16 sm:py-20">
+  <!-- ─── Featured Tutorials ──────────────────────────── -->
+  <section class="surface-soft">
+    <div class="container-page py-12 sm:py-16">
       <SectionHeading
         title="Featured Tutorials"
         subtitle="Hand-picked guides to get you started"
       />
-      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {featuredTutorials.map((tutorial) => (
           <TutorialCard tutorial={tutorial} showCategory={true} />
         ))}
@@ -110,11 +106,11 @@ const schema = {
     </div>
   </section>
 
-  <!-- Browse by Language -->
-  <section class="container-page py-16 sm:py-20">
+  <!-- ─── Browse by Language ──────────────────────────── -->
+  <section class="container-page py-12 sm:py-16">
     <SectionHeading
       title="Browse by Language"
-      subtitle="Find tutorials in the language you want to learn or already know"
+      subtitle="Find tutorials in the language you know or want to learn"
       href="/languages"
     />
     <div class="flex flex-wrap gap-2">
@@ -124,31 +120,31 @@ const schema = {
     </div>
   </section>
 
-  <!-- Why Learn by Building -->
-  <section class="border-t border-slate-100 bg-slate-50/50">
-    <div class="container-page py-16 sm:py-20">
+  <!-- ─── Why Learn by Building ───────────────────────── -->
+  <section class="surface-soft">
+    <div class="container-page py-12 sm:py-16">
       <div class="mx-auto max-w-3xl">
-        <h2 class="prose-heading text-2xl sm:text-3xl text-center">Why Learn by Building?</h2>
-        <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        <h2 class="heading-2 text-center">Why Learn by Building?</h2>
+        <div class="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-3">
           <div class="text-center">
-            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-xl" aria-hidden="true">🧠</div>
-            <h3 class="mt-3 font-semibold text-slate-900">Deep Understanding</h3>
-            <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-              Building from scratch forces you to understand every layer of the technology, not just its API.
+            <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl text-lg" style="background-color: rgb(var(--color-accent-soft));" aria-hidden="true">🧠</div>
+            <h3 class="mt-3 text-sm font-semibold" style="color: rgb(var(--color-text));">Deep Understanding</h3>
+            <p class="mt-1 text-xs text-body leading-relaxed sm:text-sm">
+              Building from scratch forces you to understand every layer, not just the API surface.
             </p>
           </div>
           <div class="text-center">
-            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-xl" aria-hidden="true">🛠️</div>
-            <h3 class="mt-3 font-semibold text-slate-900">Practical Skills</h3>
-            <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-              Move beyond tutorials into real implementation. The skills transfer directly to your work.
+            <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl text-lg" style="background-color: rgb(var(--color-accent-soft));" aria-hidden="true">🛠️</div>
+            <h3 class="mt-3 text-sm font-semibold" style="color: rgb(var(--color-text));">Practical Skills</h3>
+            <p class="mt-1 text-xs text-body leading-relaxed sm:text-sm">
+              Move beyond reading into real implementation. These skills transfer directly to your work.
             </p>
           </div>
           <div class="text-center">
-            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-xl" aria-hidden="true">🚀</div>
-            <h3 class="mt-3 font-semibold text-slate-900">Career Growth</h3>
-            <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-              Engineers who understand systems deeply become better architects, debuggers, and technical leaders.
+            <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl text-lg" style="background-color: rgb(var(--color-accent-soft));" aria-hidden="true">🚀</div>
+            <h3 class="mt-3 text-sm font-semibold" style="color: rgb(var(--color-text));">Career Growth</h3>
+            <p class="mt-1 text-xs text-body leading-relaxed sm:text-sm">
+              Engineers who understand systems deeply become better architects, debuggers, and leaders.
             </p>
           </div>
         </div>
@@ -156,42 +152,37 @@ const schema = {
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="container-page py-16 sm:py-20">
-    <div class="mx-auto max-w-3xl">
-      <h2 class="prose-heading text-2xl sm:text-3xl text-center mb-8">Frequently Asked Questions</h2>
-      <div class="space-y-6">
+  <!-- ─── FAQ ─────────────────────────────────────────── -->
+  <section class="container-page py-12 sm:py-16">
+    <div class="mx-auto max-w-2xl">
+      <h2 class="heading-2 text-center mb-8">Frequently Asked Questions</h2>
+      <dl class="space-y-6">
         <div>
-          <h3 class="font-semibold text-slate-900">What is Make Your Own XYZ?</h3>
-          <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-            Make Your Own XYZ is a curated directory of {tutorials.length}+ step-by-step tutorials that teach you how to build real technologies from scratch. It's based on the popular open-source repository build-your-own-x.
-          </p>
+          <dt class="text-sm font-semibold" style="color: rgb(var(--color-text));">What is Make Your Own XYZ?</dt>
+          <dd class="mt-1 text-sm text-body leading-relaxed">
+            A curated directory of {tutorials.length}+ step-by-step tutorials that teach you to build real technologies from scratch. Based on the open-source
+            <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="underline" style="color: rgb(var(--color-accent));">build-your-own-x</a> repository.
+          </dd>
         </div>
         <div>
-          <h3 class="font-semibold text-slate-900">Who is this for?</h3>
-          <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-            Developers at all levels who want to deepen their understanding by building real systems. Whether you're a beginner wanting to learn by doing or a senior engineer exploring a new domain, there's something here for you.
-          </p>
+          <dt class="text-sm font-semibold" style="color: rgb(var(--color-text));">Who is this for?</dt>
+          <dd class="mt-1 text-sm text-body leading-relaxed">
+            Developers at all levels who want to deepen their understanding by building. Whether you're a beginner or a senior engineer exploring a new domain.
+          </dd>
         </div>
         <div>
-          <h3 class="font-semibold text-slate-900">Are these tutorials free?</h3>
-          <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-            The vast majority of linked tutorials are freely available. Some may be from books or premium courses. Each listing links directly to the original source.
-          </p>
+          <dt class="text-sm font-semibold" style="color: rgb(var(--color-text));">Are the tutorials free?</dt>
+          <dd class="mt-1 text-sm text-body leading-relaxed">
+            The vast majority are freely available. Some link to books or premium courses. Each listing links directly to the original source.
+          </dd>
         </div>
         <div>
-          <h3 class="font-semibold text-slate-900">How do I get started?</h3>
-          <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-            Browse by <a href="/categories" class="text-brand-600 hover:underline">category</a> to find what you want to build, or by <a href="/languages" class="text-brand-600 hover:underline">programming language</a> to find tutorials in a language you know. Pick one and start building!
-          </p>
+          <dt class="text-sm font-semibold" style="color: rgb(var(--color-text));">How do I get started?</dt>
+          <dd class="mt-1 text-sm text-body leading-relaxed">
+            Browse by <a href="/categories" class="underline" style="color: rgb(var(--color-accent));">category</a> to find what to build, or by <a href="/languages" class="underline" style="color: rgb(var(--color-accent));">language</a> to find tutorials in a language you know.
+          </dd>
         </div>
-        <div>
-          <h3 class="font-semibold text-slate-900">Where does the content come from?</h3>
-          <p class="mt-1 text-sm text-slate-500 leading-relaxed">
-            All tutorials are sourced from the open-source <a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">codecrafters-io/build-your-own-x</a> repository, which is licensed under CC0 (public domain). The original project was started by Daniel Stefanovic and is maintained by CodeCrafters, Inc.
-          </p>
-        </div>
-      </div>
+      </dl>
     </div>
   </section>
 </BaseLayout>

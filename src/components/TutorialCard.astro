@@ -8,38 +8,58 @@ interface Props {
 }
 
 const { tutorial, showCategory = false } = Astro.props;
+const isVideo = tutorial.mediaType === 'video';
 ---
 
-<article class="card group p-4 sm:p-5">
+<article class="card group p-4">
   <a
     href={tutorial.url}
     target="_blank"
     rel="noopener noreferrer"
     class="block focus-visible:outline-none"
-    aria-label={`${tutorial.title} — ${tutorial.languages.join(', ')} tutorial on ${tutorial.domain}`}
+    aria-label={`${tutorial.title} — ${tutorial.languages.join(', ')} ${getMediaTypeLabel(tutorial.mediaType).toLowerCase()} on ${tutorial.domain}`}
   >
-    <!-- Top row: languages + media type -->
-    <div class="flex items-center gap-2 flex-wrap mb-2.5">
+    <!-- Language badges + media type -->
+    <div class="flex flex-wrap items-center gap-1.5 mb-2">
       {tutorial.languages.map((lang) => (
-        <span class="badge-language">{lang}</span>
+        <span class="badge badge-lang">{lang}</span>
       ))}
       {tutorial.mediaType !== 'article' && (
-        <span class="badge-media">{getMediaTypeLabel(tutorial.mediaType)}</span>
+        <span class="badge badge-media">
+          {isVideo && (
+            <svg class="mr-0.5 -ml-0.5" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          )}
+          {getMediaTypeLabel(tutorial.mediaType)}
+        </span>
       )}
     </div>
 
     <!-- Title -->
-    <h3 class="text-base font-semibold text-slate-900 leading-snug group-hover:text-brand-600 transition-colors line-clamp-2">
-      {tutorial.title}
+    <h3
+      class="text-sm font-semibold leading-snug line-clamp-2 transition-colors sm:text-base"
+      style="color: rgb(var(--color-text));"
+    >
+      <span class="group-hover:underline decoration-1 underline-offset-2" style="text-decoration-color: rgb(var(--color-accent) / 0.4);">
+        {tutorial.title}
+      </span>
     </h3>
 
-    <!-- Meta row -->
-    <div class="mt-2.5 flex items-center gap-3 text-xs text-slate-400">
+    <!-- Meta -->
+    <div class="mt-2 flex items-center gap-2 text-caption">
       {showCategory && (
-        <span class="text-slate-500">{tutorial.category}</span>
+        <span class="truncate" style="color: rgb(var(--color-text-secondary));">
+          {tutorial.category}
+        </span>
+      )}
+      {showCategory && (
+        <span aria-hidden="true" style="color: rgb(var(--color-border));">·</span>
       )}
       <span class="truncate">{tutorial.domain}</span>
-      <span class="ml-auto shrink-0 text-slate-300 group-hover:text-brand-500 transition-colors" aria-hidden="true">↗</span>
+      <span
+        class="ml-auto shrink-0 transition-colors"
+        style="color: rgb(var(--color-text-muted));"
+        aria-hidden="true"
+      >↗</span>
     </div>
   </a>
 </article>

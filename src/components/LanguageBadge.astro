@@ -10,13 +10,13 @@ const { language } = Astro.props;
 
 <a
   href={`/languages/${language.slug}`}
-  class="card group inline-flex items-center gap-2 px-4 py-2.5 transition-all hover:border-brand-300 hover:bg-brand-50"
+  class="card group inline-flex items-center gap-1.5 px-3 py-2 transition-all"
   aria-label={`${language.name} — ${language.tutorialCount} tutorials`}
 >
-  <span class="text-sm font-medium text-slate-700 group-hover:text-brand-700 transition-colors">
+  <span class="text-sm font-medium" style="color: rgb(var(--color-text));">
     {language.name}
   </span>
-  <span class="text-xs text-slate-400 group-hover:text-brand-500 transition-colors">
+  <span class="text-xs text-caption">
     {language.tutorialCount}
   </span>
 </a>

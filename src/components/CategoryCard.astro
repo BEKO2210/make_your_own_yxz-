@@ -13,28 +13,31 @@ const isLarge = size === 'large';
 <a
   href={`/categories/${category.slug}`}
   class:list={[
-    'card group block p-5 transition-all',
-    isLarge ? 'p-6 sm:p-8' : 'p-5',
+    'card group block transition-all',
+    isLarge ? 'p-4 sm:p-6' : 'p-4',
   ]}
   aria-label={`${category.name} — ${category.tutorialCount} tutorials`}
 >
-  <div class="flex items-start gap-3">
-    <span class:list={['shrink-0', isLarge ? 'text-2xl' : 'text-xl']} aria-hidden="true">
-      {category.icon}
-    </span>
-    <div class="min-w-0">
+  <div class="flex items-start gap-3 min-w-0">
+    <span
+      class:list={['shrink-0', isLarge ? 'text-xl sm:text-2xl' : 'text-lg']}
+      aria-hidden="true"
+    >{category.icon}</span>
+    <div class="min-w-0 flex-1">
       <h3 class:list={[
-        'font-semibold text-slate-900 group-hover:text-brand-600 transition-colors',
-        isLarge ? 'text-lg' : 'text-base',
-      ]}>
-        {category.name}
+        'font-semibold leading-snug transition-colors',
+        isLarge ? 'text-base sm:text-lg' : 'text-sm sm:text-base',
+      ]} style="color: rgb(var(--color-text));">
+        <span class="group-hover:underline decoration-1 underline-offset-2" style="text-decoration-color: rgb(var(--color-accent) / 0.4);">
+          {category.name}
+        </span>
       </h3>
       {isLarge && category.description && (
-        <p class="mt-1 text-sm text-slate-500 leading-relaxed line-clamp-2">
+        <p class="mt-1 text-xs leading-relaxed text-body line-clamp-2 sm:text-sm">
           {category.description}
         </p>
       )}
-      <p class="mt-1.5 text-xs text-slate-400">
+      <p class="mt-1 text-caption">
         {category.tutorialCount} {category.tutorialCount === 1 ? 'tutorial' : 'tutorials'}
       </p>
     </div>

@@ -11,8 +11,7 @@ const { tutorials, showCategory = false } = Astro.props;
 
 function langSlug(lang: string): string {
   const special: Record<string, string> = { 'C++': 'cpp', 'C#': 'csharp', 'F#': 'fsharp', 'Node.js': 'node-js' };
-  if (special[lang]) return special[lang];
-  return lang.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  return special[lang] ?? lang.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
 }
 ---
 
@@ -33,6 +32,6 @@ function langSlug(lang: string): string {
 
 {tutorials.length === 0 && (
   <div class="py-16 text-center">
-    <p class="text-lg text-slate-400">No tutorials found.</p>
+    <p class="text-sm" style="color: rgb(var(--color-text-secondary));">No tutorials available in this section yet.</p>
   </div>
 )}

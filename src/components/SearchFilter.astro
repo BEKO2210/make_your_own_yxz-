@@ -16,61 +16,81 @@ const {
 } = Astro.props;
 ---
 
-<div class="search-filter-wrapper mb-8">
-  <div class="flex flex-col sm:flex-row gap-3">
-    <!-- Search input -->
-    <div class="relative flex-1">
-      <label for="search-input" class="sr-only">Search tutorials</label>
-      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" aria-hidden="true">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.3-4.3"></path>
-        </svg>
-      </span>
-      <input
-        type="search"
-        id="search-input"
-        placeholder={placeholder}
-        autocomplete="off"
-        class="w-full rounded-lg border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-100 transition-colors"
-      />
-    </div>
-
-    <!-- Category filter -->
-    {showCategoryFilter && categories.length > 0 && (
-      <div class="relative">
-        <label for="category-filter" class="sr-only">Filter by category</label>
-        <select
-          id="category-filter"
-          class="appearance-none rounded-lg border border-slate-200 bg-white py-2.5 pl-3 pr-8 text-sm text-slate-700 focus:border-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-100 transition-colors cursor-pointer"
-        >
-          <option value="">All categories</option>
-          {categories.map((cat) => (
-            <option value={cat.slug}>{cat.name}</option>
-          ))}
-        </select>
-      </div>
-    )}
-
-    <!-- Language filter -->
-    {showLanguageFilter && languages.length > 0 && (
-      <div class="relative">
-        <label for="language-filter" class="sr-only">Filter by language</label>
-        <select
-          id="language-filter"
-          class="appearance-none rounded-lg border border-slate-200 bg-white py-2.5 pl-3 pr-8 text-sm text-slate-700 focus:border-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-100 transition-colors cursor-pointer"
-        >
-          <option value="">All languages</option>
-          {languages.map((lang) => (
-            <option value={lang.slug}>{lang.name}</option>
-          ))}
-        </select>
-      </div>
-    )}
+<div class="mb-6 sm:mb-8" role="search" aria-label="Filter tutorials">
+  <!-- Search -->
+  <div class="relative">
+    <label for="search-input" class="sr-only">Search tutorials</label>
+    <svg
+      class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2"
+      style="color: rgb(var(--color-text-muted));"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+    <input
+      type="search"
+      id="search-input"
+      placeholder={placeholder}
+      autocomplete="off"
+      class="w-full rounded-lg py-2.5 pl-10 pr-4 text-sm transition-colors"
+      style={`background-color: rgb(var(--color-bg)); border: 1px solid rgb(var(--color-border)); color: rgb(var(--color-text));`}
+    />
   </div>
 
-  <!-- Result count -->
-  <p id="result-count" class="mt-3 text-sm text-slate-400 hidden" aria-live="polite"></p>
+  <!-- Filters row — stacks on mobile, side-by-side on sm+ -->
+  {(showCategoryFilter || showLanguageFilter) && (
+    <div class="mt-3 flex flex-col gap-2 xs:flex-row xs:gap-3">
+      {showCategoryFilter && categories.length > 0 && (
+        <div class="w-full xs:w-auto">
+          <label for="category-filter" class="sr-only">Filter by category</label>
+          <select
+            id="category-filter"
+            class="w-full appearance-none rounded-lg py-2 pl-3 pr-8 text-sm transition-colors xs:w-auto"
+            style={`background-color: rgb(var(--color-bg)); border: 1px solid rgb(var(--color-border)); color: rgb(var(--color-text-secondary));`}
+          >
+            <option value="">All categories</option>
+            {categories.map((cat) => (
+              <option value={cat.slug}>{cat.name}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {showLanguageFilter && languages.length > 0 && (
+        <div class="w-full xs:w-auto">
+          <label for="language-filter" class="sr-only">Filter by language</label>
+          <select
+            id="language-filter"
+            class="w-full appearance-none rounded-lg py-2 pl-3 pr-8 text-sm transition-colors xs:w-auto"
+            style={`background-color: rgb(var(--color-bg)); border: 1px solid rgb(var(--color-border)); color: rgb(var(--color-text-secondary));`}
+          >
+            <option value="">All languages</option>
+            {languages.map((lang) => (
+              <option value={lang.slug}>{lang.name}</option>
+            ))}
+          </select>
+        </div>
+      )}
+    </div>
+  )}
+
+  <!-- Live result count -->
+  <p id="result-count" class="mt-2 text-xs text-caption hidden" aria-live="polite" role="status"></p>
+
+  <!-- No results message (hidden by default) -->
+  <div id="no-results" class="hidden mt-8 py-12 text-center">
+    <p class="text-sm" style="color: rgb(var(--color-text-secondary));">No tutorials match your search.</p>
+    <p class="mt-1 text-xs text-caption">Try a different keyword or clear your filters.</p>
+  </div>
 </div>
 
 <script>
@@ -79,52 +99,53 @@ const {
     const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement | null;
     const languageFilter = document.getElementById('language-filter') as HTMLSelectElement | null;
     const resultCount = document.getElementById('result-count');
+    const noResults = document.getElementById('no-results');
     const cards = document.querySelectorAll<HTMLElement>('[data-tutorial-card]');
 
     if (!searchInput || cards.length === 0) return;
 
-    function filterCards() {
+    function filter() {
       const query = searchInput!.value.toLowerCase().trim();
-      const categorySlug = categoryFilter?.value || '';
-      const languageSlug = languageFilter?.value || '';
+      const catVal = categoryFilter?.value || '';
+      const langVal = languageFilter?.value || '';
       let visible = 0;
 
       cards.forEach((card) => {
         const title = (card.dataset.title || '').toLowerCase();
-        const languages = (card.dataset.languages || '').toLowerCase();
+        const langs = (card.dataset.languages || '').toLowerCase();
         const category = card.dataset.category || '';
         const domain = (card.dataset.domain || '').toLowerCase();
 
-        const matchesSearch = !query ||
-          title.includes(query) ||
-          languages.includes(query) ||
-          domain.includes(query);
+        const matchQ = !query || title.includes(query) || langs.includes(query) || domain.includes(query);
+        const matchC = !catVal || category === catVal;
+        const matchL = !langVal || langs.split(',').some((l) => l.trim() === langVal);
 
-        const matchesCategory = !categorySlug || category === categorySlug;
-        const matchesLanguage = !languageSlug ||
-          languages.split(',').some((l: string) => l.trim() === languageSlug);
-
-        const show = matchesSearch && matchesCategory && matchesLanguage;
+        const show = matchQ && matchC && matchL;
         card.style.display = show ? '' : 'none';
         if (show) visible++;
       });
 
+      const hasFilters = !!(query || catVal || langVal);
+
       if (resultCount) {
-        if (query || categorySlug || languageSlug) {
+        if (hasFilters) {
           resultCount.textContent = `${visible} ${visible === 1 ? 'tutorial' : 'tutorials'} found`;
           resultCount.classList.remove('hidden');
         } else {
           resultCount.classList.add('hidden');
         }
       }
+
+      if (noResults) {
+        noResults.classList.toggle('hidden', visible > 0 || !hasFilters);
+      }
     }
 
-    searchInput.addEventListener('input', filterCards);
-    categoryFilter?.addEventListener('change', filterCards);
-    languageFilter?.addEventListener('change', filterCards);
+    searchInput.addEventListener('input', filter);
+    categoryFilter?.addEventListener('change', filter);
+    languageFilter?.addEventListener('change', filter);
   }
 
-  // Run on initial load and on Astro page transitions
   initSearch();
   document.addEventListener('astro:after-swap', initSearch);
 </script>
