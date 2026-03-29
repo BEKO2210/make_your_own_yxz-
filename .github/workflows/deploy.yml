@@ -53,10 +53,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No tutorial data changes detected."
           else
-            TUTORIAL_COUNT=$(node -e "import('./src/data/tutorials.ts').catch(()=>{});const d=require('./src/data/tutorials.ts')" 2>/dev/null || echo "")
-            git commit -m "chore: update tutorial data from source repository
-
-Automated weekly sync from codecrafters-io/build-your-own-x"
+            git commit -m "chore: update tutorial data from source repository"
             git push
           fi
 
