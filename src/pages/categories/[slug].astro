@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SearchFilter from '../../components/SearchFilter.astro';
+import TutorialList from '../../components/TutorialList.astro';
+import { categories, languages as allLanguages, getTutorialsByCategory, getCategoryBySlug } from '../../utils/helpers';
+
+export function getStaticPaths() {
+  return categories.map((cat) => ({
+    params: { slug: cat.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const category = getCategoryBySlug(slug!);
+
+if (!category) {
+  return Astro.redirect('/categories');
+}
+
+const categoryTutorials = getTutorialsByCategory(slug!);
+
+// Get languages available in this category for filtering
+const langNames = [...new Set(categoryTutorials.flatMap((t) => t.languages))];
+const categoryLangs = langNames
+  .map((name) => {
+    const found = allLanguages.find((l) => l.name === name);
+    return found ? { name: found.name, slug: found.slug } : null;
+  })
+  .filter(Boolean)
+  .sort((a, b) => a!.name.localeCompare(b!.name)) as { slug: string; name: string }[];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `Build Your Own ${category.name}`,
+  description: category.description,
+  url: `https://makeyourownxyz.com/categories/${slug}`,
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://makeyourownxyz.com' },
+      { '@type': 'ListItem', position: 2, name: 'Categories', item: 'https://makeyourownxyz.com/categories' },
+      { '@type': 'ListItem', position: 3, name: category.name },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: categoryTutorials.length,
+    itemListElement: categoryTutorials.map((t, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: t.title,
+      url: t.url,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title={`Build Your Own ${category.name}`}
+  description={`${category.description} Browse ${categoryTutorials.length} step-by-step tutorials in ${categoryLangs.length} programming languages.`}
+  schema={schema}
+>
+  <div class="container-page py-10 sm:py-14">
+    <Breadcrumbs
+      items={[
+        { label: 'Categories', href: '/categories' },
+        { label: category.name },
+      ]}
+    />
+
+    <div class="mb-8">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl" aria-hidden="true">{category.icon}</span>
+        <div>
+          <h1 class="prose-heading text-3xl sm:text-4xl">Build Your Own {category.name}</h1>
+          <p class="mt-1 text-slate-500">{category.description}</p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm text-slate-400">
+        {categoryTutorials.length} {categoryTutorials.length === 1 ? 'tutorial' : 'tutorials'} · {categoryLangs.length} {categoryLangs.length === 1 ? 'language' : 'languages'}
+      </p>
+    </div>
+
+    <SearchFilter
+      placeholder={`Search ${category.name.toLowerCase()} tutorials...`}
+      languages={categoryLangs}
+      showLanguageFilter={categoryLangs.length > 2}
+    />
+
+    <TutorialList tutorials={categoryTutorials} />
+  </div>
+</BaseLayout>

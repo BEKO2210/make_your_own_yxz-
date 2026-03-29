@@ -1,0 +1,56 @@
+---
+const navLinks = [
+  { href: '/categories', label: 'Categories' },
+  { href: '/languages', label: 'Languages' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-sm">
+  <nav class="container-page" aria-label="Main navigation">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center gap-2.5 text-lg font-bold text-slate-900 transition-colors hover:text-brand-600"
+        aria-label="Make Your Own XYZ - Home"
+      >
+        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm text-white" aria-hidden="true">
+          ✦
+        </span>
+        <span class="hidden sm:inline">Make Your Own <span class="text-brand-600">XYZ</span></span>
+        <span class="sm:hidden">MYXYZ</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="flex items-center gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+              currentPath.startsWith(link.href)
+                ? 'bg-brand-50 text-brand-700'
+                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900',
+            ]}
+            aria-current={currentPath.startsWith(link.href) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+
+        <a
+          href="https://github.com/codecrafters-io/build-your-own-x"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ml-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-slate-900"
+          aria-label="Source repository on GitHub"
+        >
+          GitHub ↗
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

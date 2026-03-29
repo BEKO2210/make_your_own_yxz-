@@ -1,0 +1,70 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-slate-200 bg-slate-50" role="contentinfo">
+  <div class="container-page py-12">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Brand -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <a href="/" class="text-lg font-bold text-slate-900">
+          Make Your Own <span class="text-brand-600">XYZ</span>
+        </a>
+        <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+          A curated directory of tutorials for learning by building. Discover step-by-step guides to recreate your favorite technologies from scratch.
+        </p>
+      </div>
+
+      <!-- Browse -->
+      <div>
+        <h3 class="text-sm font-semibold text-slate-900">Browse</h3>
+        <ul class="mt-3 space-y-2">
+          <li><a href="/categories" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">All Categories</a></li>
+          <li><a href="/languages" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">By Language</a></li>
+          <li><a href="/categories/database" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">Databases</a></li>
+          <li><a href="/categories/programming-language" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">Programming Languages</a></li>
+          <li><a href="/categories/game" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">Games</a></li>
+        </ul>
+      </div>
+
+      <!-- Popular Languages -->
+      <div>
+        <h3 class="text-sm font-semibold text-slate-900">Popular Languages</h3>
+        <ul class="mt-3 space-y-2">
+          <li><a href="/languages/python" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">Python</a></li>
+          <li><a href="/languages/javascript" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">JavaScript</a></li>
+          <li><a href="/languages/c" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">C</a></li>
+          <li><a href="/languages/rust" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">Rust</a></li>
+          <li><a href="/languages/go" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">Go</a></li>
+        </ul>
+      </div>
+
+      <!-- About -->
+      <div>
+        <h3 class="text-sm font-semibold text-slate-900">About</h3>
+        <ul class="mt-3 space-y-2">
+          <li><a href="/about" class="text-sm text-slate-500 hover:text-brand-600 transition-colors">About This Project</a></li>
+          <li>
+            <a
+              href="https://github.com/codecrafters-io/build-your-own-x"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-slate-500 hover:text-brand-600 transition-colors"
+            >
+              Source Repository ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-slate-200 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <p class="text-xs text-slate-400">
+        Content sourced from <a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-600">codecrafters-io/build-your-own-x</a> under CC0 license.
+      </p>
+      <p class="text-xs text-slate-400">
+        &copy; {currentYear} Make Your Own XYZ
+      </p>
+    </div>
+  </div>
+</footer>

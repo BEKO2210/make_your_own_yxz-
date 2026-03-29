@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CategoryCard from '../../components/CategoryCard.astro';
+import { categories, tutorials } from '../../utils/helpers';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'All Categories — Build Your Own Tutorials',
+  description: `Browse ${categories.length} categories of build-your-own tutorials, from databases to operating systems.`,
+  url: 'https://makeyourownxyz.com/categories',
+  numberOfItems: categories.length,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: categories.length,
+    itemListElement: categories.map((cat, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: cat.name,
+      url: `https://makeyourownxyz.com/categories/${cat.slug}`,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title="All Categories"
+  description={`Browse ${categories.length} categories of build-your-own tutorials across ${tutorials.length}+ guides. Find step-by-step tutorials to build databases, compilers, games, operating systems, and more from scratch.`}
+  schema={schema}
+>
+  <div class="container-page py-10 sm:py-14">
+    <Breadcrumbs items={[{ label: 'Categories' }]} />
+
+    <div class="mb-8">
+      <h1 class="prose-heading text-3xl sm:text-4xl">All Categories</h1>
+      <p class="mt-2 text-slate-500">
+        {categories.length} categories with {tutorials.length}+ tutorials to explore
+      </p>
+    </div>
+
+    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map((cat) => (
+        <CategoryCard category={cat} size="large" />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

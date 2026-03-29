@@ -1,0 +1,38 @@
+---
+import type { Tutorial } from '../data/types';
+import TutorialCard from './TutorialCard.astro';
+
+interface Props {
+  tutorials: Tutorial[];
+  showCategory?: boolean;
+}
+
+const { tutorials, showCategory = false } = Astro.props;
+
+function langSlug(lang: string): string {
+  const special: Record<string, string> = { 'C++': 'cpp', 'C#': 'csharp', 'F#': 'fsharp', 'Node.js': 'node-js' };
+  if (special[lang]) return special[lang];
+  return lang.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+}
+---
+
+<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" role="list">
+  {tutorials.map((tutorial) => (
+    <div
+      role="listitem"
+      data-tutorial-card
+      data-title={tutorial.title}
+      data-languages={tutorial.languages.map(langSlug).join(',')}
+      data-category={tutorial.categorySlug}
+      data-domain={tutorial.domain}
+    >
+      <TutorialCard tutorial={tutorial} showCategory={showCategory} />
+    </div>
+  ))}
+</div>
+
+{tutorials.length === 0 && (
+  <div class="py-16 text-center">
+    <p class="text-lg text-slate-400">No tutorials found.</p>
+  </div>
+)}

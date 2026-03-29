@@ -1,0 +1,22 @@
+---
+import type { Language } from '../data/types';
+
+interface Props {
+  language: Language;
+}
+
+const { language } = Astro.props;
+---
+
+<a
+  href={`/languages/${language.slug}`}
+  class="card group inline-flex items-center gap-2 px-4 py-2.5 transition-all hover:border-brand-300 hover:bg-brand-50"
+  aria-label={`${language.name} — ${language.tutorialCount} tutorials`}
+>
+  <span class="text-sm font-medium text-slate-700 group-hover:text-brand-700 transition-colors">
+    {language.name}
+  </span>
+  <span class="text-xs text-slate-400 group-hover:text-brand-500 transition-colors">
+    {language.tutorialCount}
+  </span>
+</a>

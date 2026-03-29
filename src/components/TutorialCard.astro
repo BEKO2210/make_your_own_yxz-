@@ -1,0 +1,45 @@
+---
+import type { Tutorial } from '../data/types';
+import { getMediaTypeLabel } from '../utils/helpers';
+
+interface Props {
+  tutorial: Tutorial;
+  showCategory?: boolean;
+}
+
+const { tutorial, showCategory = false } = Astro.props;
+---
+
+<article class="card group p-4 sm:p-5">
+  <a
+    href={tutorial.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="block focus-visible:outline-none"
+    aria-label={`${tutorial.title} — ${tutorial.languages.join(', ')} tutorial on ${tutorial.domain}`}
+  >
+    <!-- Top row: languages + media type -->
+    <div class="flex items-center gap-2 flex-wrap mb-2.5">
+      {tutorial.languages.map((lang) => (
+        <span class="badge-language">{lang}</span>
+      ))}
+      {tutorial.mediaType !== 'article' && (
+        <span class="badge-media">{getMediaTypeLabel(tutorial.mediaType)}</span>
+      )}
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-base font-semibold text-slate-900 leading-snug group-hover:text-brand-600 transition-colors line-clamp-2">
+      {tutorial.title}
+    </h3>
+
+    <!-- Meta row -->
+    <div class="mt-2.5 flex items-center gap-3 text-xs text-slate-400">
+      {showCategory && (
+        <span class="text-slate-500">{tutorial.category}</span>
+      )}
+      <span class="truncate">{tutorial.domain}</span>
+      <span class="ml-auto shrink-0 text-slate-300 group-hover:text-brand-500 transition-colors" aria-hidden="true">↗</span>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,42 @@
+---
+import type { Category } from '../data/types';
+
+interface Props {
+  category: Category;
+  size?: 'default' | 'large';
+}
+
+const { category, size = 'default' } = Astro.props;
+const isLarge = size === 'large';
+---
+
+<a
+  href={`/categories/${category.slug}`}
+  class:list={[
+    'card group block p-5 transition-all',
+    isLarge ? 'p-6 sm:p-8' : 'p-5',
+  ]}
+  aria-label={`${category.name} — ${category.tutorialCount} tutorials`}
+>
+  <div class="flex items-start gap-3">
+    <span class:list={['shrink-0', isLarge ? 'text-2xl' : 'text-xl']} aria-hidden="true">
+      {category.icon}
+    </span>
+    <div class="min-w-0">
+      <h3 class:list={[
+        'font-semibold text-slate-900 group-hover:text-brand-600 transition-colors',
+        isLarge ? 'text-lg' : 'text-base',
+      ]}>
+        {category.name}
+      </h3>
+      {isLarge && category.description && (
+        <p class="mt-1 text-sm text-slate-500 leading-relaxed line-clamp-2">
+          {category.description}
+        </p>
+      )}
+      <p class="mt-1.5 text-xs text-slate-400">
+        {category.tutorialCount} {category.tutorialCount === 1 ? 'tutorial' : 'tutorials'}
+      </p>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { tutorials, categories, languages } from '../utils/helpers';
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Make Your Own XYZ — a curated directory of build-your-own tutorials sourced from the open-source community."
+>
+  <div class="container-page py-10 sm:py-14">
+    <Breadcrumbs items={[{ label: 'About' }]} />
+
+    <div class="mx-auto max-w-2xl">
+      <h1 class="prose-heading text-3xl sm:text-4xl">About This Project</h1>
+
+      <div class="mt-8 space-y-6 text-slate-600 leading-relaxed">
+        <p>
+          <strong class="text-slate-900">Make Your Own XYZ</strong> is a web interface for the popular open-source repository
+          <a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">codecrafters-io/build-your-own-x</a>,
+          which curates step-by-step tutorials for rebuilding real technologies from scratch.
+        </p>
+
+        <p>
+          The goal is simple: make these {tutorials.length}+ tutorials easier to discover, browse, and filter. Instead of scrolling through a long README, you can search by category, programming language, or keyword.
+        </p>
+
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <h2 class="font-semibold text-slate-900">By the Numbers</h2>
+          <dl class="mt-3 grid grid-cols-3 gap-4 text-center">
+            <div>
+              <dt class="text-xs text-slate-500">Tutorials</dt>
+              <dd class="text-2xl font-bold text-slate-900">{tutorials.length}+</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-slate-500">Categories</dt>
+              <dd class="text-2xl font-bold text-slate-900">{categories.length}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-slate-500">Languages</dt>
+              <dd class="text-2xl font-bold text-slate-900">{languages.length}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <h2 class="!mt-10 font-semibold text-slate-900 text-xl">Philosophy</h2>
+        <p>
+          Building things from scratch is one of the most effective ways to learn. When you implement a database, a compiler, or an operating system yourself, you gain insights that no amount of documentation reading can provide.
+        </p>
+        <blockquote class="border-l-2 border-brand-300 pl-4 italic text-slate-500">
+          "What I cannot create, I do not understand." — Richard Feynman
+        </blockquote>
+
+        <h2 class="!mt-10 font-semibold text-slate-900 text-xl">Attribution</h2>
+        <p>
+          The original <a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">build-your-own-x</a> repository was created by
+          <a href="https://github.com/danistefanovic" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Daniel Stefanovic</a>
+          and is now maintained by <a href="https://codecrafters.io" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">CodeCrafters, Inc.</a>
+          It is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">CC0</a> (public domain).
+        </p>
+        <p>
+          This website is a community presentation of that data. All tutorial links point to their original sources.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

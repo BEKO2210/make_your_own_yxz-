@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import LanguageBadge from '../../components/LanguageBadge.astro';
+import { languages, tutorials } from '../../utils/helpers';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Tutorials by Programming Language',
+  description: `Browse build-your-own tutorials in ${languages.length} programming languages.`,
+  url: 'https://makeyourownxyz.com/languages',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: languages.length,
+    itemListElement: languages.map((lang, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: lang.name,
+      url: `https://makeyourownxyz.com/languages/${lang.slug}`,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title="Browse by Language"
+  description={`Explore ${tutorials.length}+ build-your-own tutorials across ${languages.length} programming languages including Python, JavaScript, C, Rust, Go, and more.`}
+  schema={schema}
+>
+  <div class="container-page py-10 sm:py-14">
+    <Breadcrumbs items={[{ label: 'Languages' }]} />
+
+    <div class="mb-8">
+      <h1 class="prose-heading text-3xl sm:text-4xl">Browse by Language</h1>
+      <p class="mt-2 text-slate-500">
+        {languages.length} programming languages with {tutorials.length}+ tutorials
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      {languages.map((lang) => (
+        <LanguageBadge language={lang} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

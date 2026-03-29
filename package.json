@@ -1,0 +1,19 @@
+{
+  "name": "make-your-own-xyz",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A curated directory of build-your-own-x tutorials for developers who learn by building",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.18.1",
+    "tailwindcss": "^3.4.19"
+  }
+}
