@@ -13,10 +13,22 @@ export const SITE = {
 
 /**
  * Build a canonical URL from a pathname.
- * Works with or without trailing slash.
  */
 export function canonicalUrl(pathname: string): string {
   const base = SITE.url.replace(/\/$/, '');
   const path = pathname.startsWith('/') ? pathname : `/${pathname}`;
   return `${base}${path}`;
+}
+
+/**
+ * Prefix an internal path with the Astro base URL.
+ * Ensures all internal links work correctly on GitHub Pages
+ * (where the site lives under /repo-name/) and with custom domains.
+ *
+ * Usage in .astro files:  href={url('/categories')}
+ */
+export function url(path: string): string {
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${cleanPath}`;
 }

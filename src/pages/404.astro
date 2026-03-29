@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/site';
 ---
 
 <BaseLayout
@@ -12,8 +13,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h1 class="mt-4 text-xl font-semibold sm:text-2xl" style="color: rgb(var(--color-text));">Page Not Found</h1>
     <p class="mt-2 text-sm text-body">The page you're looking for doesn't exist or has been moved.</p>
     <div class="mt-6 flex flex-col gap-3 xs:flex-row">
-      <a href="/" class="btn-primary">Go Home</a>
-      <a href="/categories" class="btn-secondary">Browse Categories</a>
+      <a href={url('/')} class="btn-primary">Go Home</a>
+      <a href={url('/categories')} class="btn-secondary">Browse Categories</a>
     </div>
   </div>
 </BaseLayout>

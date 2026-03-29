@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import LanguageBadge from '../components/LanguageBadge.astro';
+import { url } from '../utils/site';
 import TutorialCard from '../components/TutorialCard.astro';
 import { SITE } from '../utils/site';
 import { websiteSchema } from '../utils/seo';
@@ -54,8 +55,8 @@ const schema = websiteSchema();
           "What I cannot create, I do not understand." — Richard Feynman
         </blockquote>
         <div class="mt-6 flex flex-col items-center gap-3 xs:flex-row xs:justify-center">
-          <a href="/categories" class="btn-primary w-full xs:w-auto">Browse Categories</a>
-          <a href="/languages" class="btn-secondary w-full xs:w-auto">Browse by Language</a>
+          <a href={url("/categories")} class="btn-primary w-full xs:w-auto">Browse Categories</a>
+          <a href={url("/languages")} class="btn-secondary w-full xs:w-auto">Browse by Language</a>
         </div>
       </div>
 
@@ -82,7 +83,7 @@ const schema = websiteSchema();
     <SectionHeading
       title="Popular Categories"
       subtitle="Explore tutorials organized by what you want to build"
-      href="/categories"
+      href={url("/categories")}
     />
     <div class="grid gap-3 grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {featuredCategories.map((cat) => (
@@ -111,7 +112,7 @@ const schema = websiteSchema();
     <SectionHeading
       title="Browse by Language"
       subtitle="Find tutorials in the language you know or want to learn"
-      href="/languages"
+      href={url("/languages")}
     />
     <div class="flex flex-wrap gap-2">
       {topLanguages.map((lang) => (
@@ -179,7 +180,7 @@ const schema = websiteSchema();
         <div>
           <dt class="text-sm font-semibold" style="color: rgb(var(--color-text));">How do I get started?</dt>
           <dd class="mt-1 text-sm text-body leading-relaxed">
-            Browse by <a href="/categories" class="underline" style="color: rgb(var(--color-accent));">category</a> to find what to build, or by <a href="/languages" class="underline" style="color: rgb(var(--color-accent));">language</a> to find tutorials in a language you know.
+            Browse by <a href={url("/categories")} class="underline" style="color: rgb(var(--color-accent));">category</a> to find what to build, or by <a href={url("/languages")} class="underline" style="color: rgb(var(--color-accent));">language</a> to find tutorials in a language you know.
           </dd>
         </div>
       </dl>

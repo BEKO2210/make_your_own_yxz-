@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../utils/site';
+import { SITE, url } from '../utils/site';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <!-- Brand -->
       <div class="sm:col-span-2 lg:col-span-1">
-        <a href="/" class="text-base font-bold sm:text-lg" style="color: rgb(var(--color-text));">
+        <a href={url('/')} class="text-base font-bold sm:text-lg" style="color: rgb(var(--color-text));">
           Make Your Own <span style="color: rgb(var(--color-accent));">XYZ</span>
         </a>
         <p class="mt-2 text-sm leading-relaxed text-body" style="max-width: 28ch;">
@@ -20,11 +20,11 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-sm font-semibold" style="color: rgb(var(--color-text));">Browse</h3>
         <ul class="mt-3 space-y-2">
-          <li><a href="/categories" class="text-sm text-body hover:underline">All Categories</a></li>
-          <li><a href="/languages" class="text-sm text-body hover:underline">By Language</a></li>
-          <li><a href="/categories/database" class="text-sm text-body hover:underline">Databases</a></li>
-          <li><a href="/categories/programming-language" class="text-sm text-body hover:underline">Programming Languages</a></li>
-          <li><a href="/categories/game" class="text-sm text-body hover:underline">Games</a></li>
+          <li><a href={url('/categories')} class="text-sm text-body hover:underline">All Categories</a></li>
+          <li><a href={url('/languages')} class="text-sm text-body hover:underline">By Language</a></li>
+          <li><a href={url('/categories/database')} class="text-sm text-body hover:underline">Databases</a></li>
+          <li><a href={url('/categories/programming-language')} class="text-sm text-body hover:underline">Programming Languages</a></li>
+          <li><a href={url('/categories/game')} class="text-sm text-body hover:underline">Games</a></li>
         </ul>
       </div>
 
@@ -32,11 +32,11 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-sm font-semibold" style="color: rgb(var(--color-text));">Popular Languages</h3>
         <ul class="mt-3 space-y-2">
-          <li><a href="/languages/python" class="text-sm text-body hover:underline">Python</a></li>
-          <li><a href="/languages/javascript" class="text-sm text-body hover:underline">JavaScript</a></li>
-          <li><a href="/languages/c" class="text-sm text-body hover:underline">C</a></li>
-          <li><a href="/languages/rust" class="text-sm text-body hover:underline">Rust</a></li>
-          <li><a href="/languages/go" class="text-sm text-body hover:underline">Go</a></li>
+          <li><a href={url('/languages/python')} class="text-sm text-body hover:underline">Python</a></li>
+          <li><a href={url('/languages/javascript')} class="text-sm text-body hover:underline">JavaScript</a></li>
+          <li><a href={url('/languages/c')} class="text-sm text-body hover:underline">C</a></li>
+          <li><a href={url('/languages/rust')} class="text-sm text-body hover:underline">Rust</a></li>
+          <li><a href={url('/languages/go')} class="text-sm text-body hover:underline">Go</a></li>
         </ul>
       </div>
 
@@ -44,7 +44,7 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-sm font-semibold" style="color: rgb(var(--color-text));">Project</h3>
         <ul class="mt-3 space-y-2">
-          <li><a href="/about" class="text-sm text-body hover:underline">About</a></li>
+          <li><a href={url('/about')} class="text-sm text-body hover:underline">About</a></li>
           <li>
             <a href={SITE.github} target="_blank" rel="noopener noreferrer" class="text-sm text-body hover:underline">
               Source Repository

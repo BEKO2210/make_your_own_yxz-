@@ -1,16 +1,16 @@
 ---
-import { SITE } from '../utils/site';
+import { SITE, url } from '../utils/site';
 
 const navLinks = [
-  { href: '/categories', label: 'Categories' },
-  { href: '/languages', label: 'Languages' },
-  { href: '/about', label: 'About' },
+  { href: url('/categories'), label: 'Categories' },
+  { href: url('/languages'), label: 'Languages' },
+  { href: url('/about'), label: 'About' },
 ];
 
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string): boolean {
-  if (href === '/') return currentPath === '/';
+  if (href === url('/')) return currentPath === url('/') || currentPath === url('/') + '/';
   return currentPath.startsWith(href);
 }
 ---
@@ -23,7 +23,7 @@ function isActive(href: string): boolean {
     <div class="flex h-14 items-center justify-between sm:h-16">
       <!-- Logo -->
       <a
-        href="/"
+        href={url('/')}
         class="flex items-center gap-2 text-base font-bold sm:text-lg"
         style="color: rgb(var(--color-text));"
         aria-label={`${SITE.name} — Home`}

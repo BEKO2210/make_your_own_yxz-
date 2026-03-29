@@ -8,19 +8,20 @@ interface Props {
   items: BreadcrumbItem[];
 }
 
+import { url } from '../utils/site';
 const { items } = Astro.props;
 ---
 
 <nav aria-label="Breadcrumb" class="mb-4 sm:mb-6">
   <ol class="flex flex-wrap items-center gap-1 text-xs text-caption sm:text-sm">
     <li>
-      <a href="/" class="transition-colors hover:underline" style="color: rgb(var(--color-text-muted));">Home</a>
+      <a href={url('/')} class="transition-colors hover:underline" style="color: rgb(var(--color-text-muted));">Home</a>
     </li>
     {items.map((item) => (
       <li class="flex items-center gap-1">
         <span aria-hidden="true" style="color: rgb(var(--color-border));">/</span>
         {item.href ? (
-          <a href={item.href} class="transition-colors hover:underline" style="color: rgb(var(--color-text-muted));">
+          <a href={url(item.href)} class="transition-colors hover:underline" style="color: rgb(var(--color-text-muted));">
             {item.label}
           </a>
         ) : (

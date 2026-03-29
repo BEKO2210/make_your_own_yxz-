@@ -1,5 +1,6 @@
 ---
 import type { Language } from '../data/types';
+import { url } from '../utils/site';
 
 interface Props {
   language: Language;
@@ -9,7 +10,7 @@ const { language } = Astro.props;
 ---
 
 <a
-  href={`/languages/${language.slug}`}
+  href={url(`/languages/${language.slug}`)}
   class="card group inline-flex items-center gap-1.5 px-3 py-2 transition-all"
   aria-label={`${language.name} — ${language.tutorialCount} tutorials`}
 >

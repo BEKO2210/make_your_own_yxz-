@@ -1,5 +1,6 @@
 ---
 import type { Category } from '../data/types';
+import { url } from '../utils/site';
 
 interface Props {
   category: Category;
@@ -11,7 +12,7 @@ const isLarge = size === 'large';
 ---
 
 <a
-  href={`/categories/${category.slug}`}
+  href={url(`/categories/${category.slug}`)}
   class:list={[
     'card group block transition-all',
     isLarge ? 'p-4 sm:p-6' : 'p-4',
