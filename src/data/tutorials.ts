@@ -1,6 +1,6 @@
 // Auto-generated from codecrafters-io/build-your-own-x README
 // License: CC0 (Public Domain)
-// Last updated: 2026-06-22T11:48:08.692Z
+// Last updated: 2026-06-29T10:52:10.416Z
 import type { Tutorial, Category, Language } from './types';
 
 export const tutorials: Tutorial[] = [
@@ -1901,6 +1901,17 @@ export const tutorials: Tutorial[] = [
     "categorySlug": "neural-network",
     "domain": "iamtrask.github.io",
     "mediaType": "article"
+  },
+  {
+    "title": "Build Deep Learning From Scratch (reimplement PyTorch internals across 34 stages)",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://github.com/roiamiel1/Build-Deep-Learning-From-Scratch",
+    "category": "Neural Network",
+    "categorySlug": "neural-network",
+    "domain": "github.com",
+    "mediaType": "repo"
   },
   {
     "title": "Implement a Neural Network from Scratch",
@@ -3990,7 +4001,7 @@ export const categories: Category[] = [
     "name": "Neural Network",
     "slug": "neural-network",
     "description": "Build neural networks from scratch and understand deep learning fundamentals.",
-    "tutorialCount": 16,
+    "tutorialCount": 17,
     "icon": "🧬"
   },
   {
@@ -4174,7 +4185,7 @@ export const languages: Language[] = [
   {
     "name": "Python",
     "slug": "python",
-    "tutorialCount": 72
+    "tutorialCount": 73
   },
   {
     "name": "JavaScript",
