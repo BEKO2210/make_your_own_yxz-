@@ -1,6 +1,6 @@
 // Auto-generated from codecrafters-io/build-your-own-x README
 // License: CC0 (Public Domain)
-// Last updated: 2026-08-31T12:37:53.780Z
+// Last updated: 2026-09-07T11:31:24.695Z
 import type { Tutorial, Category, Language } from './types';
 
 export const tutorials: Tutorial[] = [
