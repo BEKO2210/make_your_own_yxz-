@@ -1,6 +1,6 @@
 // Auto-generated from codecrafters-io/build-your-own-x README
 // License: CC0 (Public Domain)
-// Last updated: 2026-11-02T06:14:23.452Z
+// Last updated: 2026-11-09T15:05:38.573Z
 import type { Tutorial, Category, Language } from './types';
 
 export const tutorials: Tutorial[] = [
@@ -930,6 +930,17 @@ export const tutorials: Tutorial[] = [
     "category": "Database",
     "categorySlug": "database",
     "domain": "tokio.rs",
+    "mediaType": "article"
+  },
+  {
+    "title": "Vector Database from Scratch",
+    "languages": [
+      "Rust"
+    ],
+    "url": "https://skyzh.github.io/vector-db-from-scratch/",
+    "category": "Database",
+    "categorySlug": "database",
+    "domain": "skyzh.github.io",
     "mediaType": "article"
   },
   {
@@ -4012,18 +4023,18 @@ export const categories: Category[] = [
     "icon": "🤖"
   },
   {
+    "name": "Database",
+    "slug": "database",
+    "description": "Understand data storage by building databases, key-value stores, and query engines.",
+    "tutorialCount": 14,
+    "icon": "🗄️"
+  },
+  {
     "name": "Front-end Framework / Library",
     "slug": "front-end-framework-library",
     "description": "Understand how React, Angular, and other frameworks work under the hood.",
     "tutorialCount": 14,
     "icon": "⚛️"
-  },
-  {
-    "name": "Database",
-    "slug": "database",
-    "description": "Understand data storage by building databases, key-value stores, and query engines.",
-    "tutorialCount": 13,
-    "icon": "🗄️"
   },
   {
     "name": "Emulator / Virtual Machine",
@@ -4210,7 +4221,7 @@ export const languages: Language[] = [
   {
     "name": "Rust",
     "slug": "rust",
-    "tutorialCount": 17
+    "tutorialCount": 18
   },
   {
     "name": "C#",
