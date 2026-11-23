@@ -1,20 +1,9 @@
 // Auto-generated from codecrafters-io/build-your-own-x README
 // License: CC0 (Public Domain)
-// Last updated: 2026-11-16T14:42:47.132Z
+// Last updated: 2026-11-23T17:19:29.597Z
 import type { Tutorial, Category, Language } from './types';
 
 export const tutorials: Tutorial[] = [
-  {
-    "title": "Building Your Own Kafka-like System From Scratch: A Step-by-Step Guide",
-    "languages": [
-      "Java"
-    ],
-    "url": "https://github.com/buildthingsuseful/build-your-own-kafka",
-    "category": "Distributed Systems",
-    "categorySlug": "distributed-systems",
-    "domain": "github.com",
-    "mediaType": "repo"
-  },
   {
     "title": "Introduction to Ray Tracing: a Simple Method for Creating 3D Images",
     "languages": [
@@ -53,7 +42,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C++"
     ],
-    "url": "http://www.pbr-book.org/",
+    "url": "https://www.pbr-book.org/",
     "category": "3D Renderer",
     "categorySlug": "3d-renderer",
     "domain": "pbr-book.org",
@@ -80,6 +69,17 @@ export const tutorials: Tutorial[] = [
     "categorySlug": "3d-renderer",
     "domain": "scratchapixel.com",
     "mediaType": "article"
+  },
+  {
+    "title": "Code-It-Yourself! 3D Graphics Engine Part #1 - Triangles & Projection",
+    "languages": [
+      "C++"
+    ],
+    "url": "https://www.youtube.com/watch?v=ih20l3pJoeU",
+    "category": "3D Renderer",
+    "categorySlug": "3d-renderer",
+    "domain": "youtube.com",
+    "mediaType": "video"
   },
   {
     "title": "Learning how to write a 3D soft engine from scratch in C#, TypeScript or JavaScript",
@@ -123,7 +123,7 @@ export const tutorials: Tutorial[] = [
       "JavaScript",
       "Pseudocode"
     ],
-    "url": "http://www.gabrielgambetta.com/computer-graphics-from-scratch/introduction.html",
+    "url": "https://www.gabrielgambetta.com/computer-graphics-from-scratch/00-introduction.html",
     "category": "3D Renderer",
     "categorySlug": "3d-renderer",
     "domain": "gabrielgambetta.com",
@@ -152,6 +152,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "repo"
   },
   {
+    "title": "A Reasoning Model (LLM with inference-time scaling, GRPO and distillation)",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://github.com/rasbt/reasoning-from-scratch",
+    "category": "AI Model",
+    "categorySlug": "ai-model",
+    "domain": "github.com",
+    "mediaType": "repo"
+  },
+  {
     "title": "Diffusion Models for Image Generation",
     "languages": [
       "Python"
@@ -160,6 +171,17 @@ export const tutorials: Tutorial[] = [
     "category": "AI Model",
     "categorySlug": "ai-model",
     "domain": "huggingface.co",
+    "mediaType": "article"
+  },
+  {
+    "title": "An LLM Evaluation Harness (test cases, runner, rule-based and LLM judges)",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://machinelearningmastery.com/building-a-custom-llm-evaluation-harness-in-python-from-scratch/",
+    "category": "AI Model",
+    "categorySlug": "ai-model",
+    "domain": "machinelearningmastery.com",
     "mediaType": "article"
   },
   {
@@ -172,6 +194,28 @@ export const tutorials: Tutorial[] = [
     "categorySlug": "ai-model",
     "domain": "github.com",
     "mediaType": "repo"
+  },
+  {
+    "title": "Building a Coding Agent From Scratch",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://github.com/decodingai-magazine/building-a-coding-agent-from-scratch-course",
+    "category": "AI Model",
+    "categorySlug": "ai-model",
+    "domain": "github.com",
+    "mediaType": "repo"
+  },
+  {
+    "title": "Sparse Autoencoders (toy models of superposition, then train your own SAE)",
+    "languages": [
+      "Python"
+    ],
+    "url": "https://learn.arena.education/chapter1_transformer_interp/34_superposition/",
+    "category": "AI Model",
+    "categorySlug": "ai-model",
+    "domain": "learn.arena.education",
+    "mediaType": "article"
   },
   {
     "title": "How To: Augmented Reality App Tutorial for Beginners with Vuforia and Unity 3D",
@@ -387,7 +431,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "JavaScript"
     ],
-    "url": "https://github.com/SavjeeTutorials/SavjeeCoin",
+    "url": "https://github.com/Savjee/SavjeeCoin",
     "category": "Blockchain / Cryptocurrency",
     "categorySlug": "blockchain-cryptocurrency",
     "domain": "github.com",
@@ -475,7 +519,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "Ruby"
     ],
-    "url": "https://github.com/yukimotopress/programming-blockchains-step-by-step",
+    "url": "https://github.com/openblockchains/programming-blockchains",
     "category": "Blockchain / Cryptocurrency",
     "categorySlug": "blockchain-cryptocurrency",
     "domain": "github.com",
@@ -658,17 +702,6 @@ export const tutorials: Tutorial[] = [
     "mediaType": "article"
   },
   {
-    "title": "Creating Reddit Bot with Python & PRAW",
-    "languages": [
-      "Python"
-    ],
-    "url": "https://www.youtube.com/playlist?list=PLIFBTFgFpoJ9vmYYlfxRFV6U_XhG-4fpP",
-    "category": "Bot",
-    "categorySlug": "bot",
-    "domain": "youtube.com",
-    "mediaType": "video"
-  },
-  {
     "title": "Build A Cryptocurrency Trading Bot with R",
     "languages": [
       "R"
@@ -816,10 +849,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C#"
     ],
-    "url": "https://www.codeproject.com/Articles/1029838/Build-Your-Own-Database",
+    "url": "https://web.archive.org/web/2017/https://www.codeproject.com/Articles/1029838/Build-Your-Own-Database",
     "category": "Database",
     "categorySlug": "database",
-    "domain": "codeproject.com",
+    "domain": "web.archive.org",
     "mediaType": "article"
   },
   {
@@ -922,6 +955,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "article"
   },
   {
+    "title": "Mini-LSM: Build a Database Storage Engine in Rust",
+    "languages": [
+      "Rust"
+    ],
+    "url": "https://skyzh.github.io/mini-lsm/",
+    "category": "Database",
+    "categorySlug": "database",
+    "domain": "skyzh.github.io",
+    "mediaType": "article"
+  },
+  {
     "title": "Build your own Redis client and server",
     "languages": [
       "Rust"
@@ -942,6 +986,28 @@ export const tutorials: Tutorial[] = [
     "categorySlug": "database",
     "domain": "skyzh.github.io",
     "mediaType": "article"
+  },
+  {
+    "title": "A Practical Guide to Building a Cost-Based Query Planner",
+    "languages": [
+      "Scala"
+    ],
+    "url": "https://github.com/tuannh982/query-planner-guide",
+    "category": "Database",
+    "categorySlug": "database",
+    "domain": "github.com",
+    "mediaType": "repo"
+  },
+  {
+    "title": "Building Your Own Kafka-like System From Scratch: A Step-by-Step Guide",
+    "languages": [
+      "Java"
+    ],
+    "url": "https://github.com/buildthingsuseful/build-your-own-kafka",
+    "category": "Distributed Systems",
+    "categorySlug": "distributed-systems",
+    "domain": "github.com",
+    "mediaType": "repo"
   },
   {
     "title": "Linux containers in 500 lines of code",
@@ -1058,7 +1124,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C++"
     ],
-    "url": "http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/",
+    "url": "https://multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/",
     "category": "Emulator / Virtual Machine",
     "categorySlug": "emulator-virtual-machine",
     "domain": "multigesture.net",
@@ -1168,7 +1234,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "JavaScript"
     ],
-    "url": "https://github.com/hexacta/didact",
+    "url": "https://github.com/pomber/didact",
     "category": "Front-end Framework / Library",
     "categorySlug": "front-end-framework-library",
     "domain": "github.com",
@@ -1305,6 +1371,28 @@ export const tutorials: Tutorial[] = [
     "categorySlug": "front-end-framework-library",
     "domain": "youtu.be",
     "mediaType": "video"
+  },
+  {
+    "title": "Build your own Svelte",
+    "languages": [
+      "JavaScript"
+    ],
+    "url": "https://www.youtube.com/playlist?list=PLoKaNN3BjQX1OQmFzK9SJnFXEurm1-UxQ",
+    "category": "Front-end Framework / Library",
+    "categorySlug": "front-end-framework-library",
+    "domain": "youtube.com",
+    "mediaType": "video"
+  },
+  {
+    "title": "chibivue",
+    "languages": [
+      "TypeScript"
+    ],
+    "url": "https://book.chibivue.land/",
+    "category": "Front-end Framework / Library",
+    "categorySlug": "front-end-framework-library",
+    "domain": "book.chibivue.land",
+    "mediaType": "article"
   },
   {
     "title": "Handmade Hero",
@@ -1505,6 +1593,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "video"
   },
   {
+    "title": "How to Make a 2D Game in Java",
+    "languages": [
+      "Java"
+    ],
+    "url": "https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq",
+    "category": "Game",
+    "categorySlug": "game",
+    "domain": "youtube.com",
+    "mediaType": "video"
+  },
+  {
     "title": "Code a 2D Game Engine using Java - Full Course for Beginners",
     "languages": [
       "Java"
@@ -1520,10 +1619,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "Java"
     ],
-    "url": "https://lwjglgamedev.gitbooks.io/3d-game-development-with-lwjgl/content/",
+    "url": "https://ahbejarano.gitbook.io/lwjglgamedev/",
     "category": "Game",
     "categorySlug": "game",
-    "domain": "lwjglgamedev.gitbooks.io",
+    "domain": "ahbejarano.gitbook.io",
     "mediaType": "article"
   },
   {
@@ -1714,6 +1813,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "article"
   },
   {
+    "title": "Build And Learn Git With PHP",
+    "languages": [
+      "PHP"
+    ],
+    "url": "https://omar-ahmed-elshiekh.github.io/git-php-doc-website/",
+    "category": "Git",
+    "categorySlug": "git",
+    "domain": "omar-ahmed-elshiekh.github.io",
+    "mediaType": "article"
+  },
+  {
     "title": "Just enough of a Git client to create a repo, commit, and push itself to GitHub",
     "languages": [
       "Python"
@@ -1769,6 +1879,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "article"
   },
   {
+    "title": "Malloc tutorial",
+    "languages": [
+      "C"
+    ],
+    "url": "https://danluu.com/malloc-tutorial/",
+    "category": "Memory Allocator",
+    "categorySlug": "memory-allocator",
+    "domain": "danluu.com",
+    "mediaType": "article"
+  },
+  {
     "title": "Beej's Guide to Network Programming",
     "languages": [
       "C"
@@ -1818,10 +1939,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C#"
     ],
-    "url": "https://www.codeproject.com/Articles/11285/Neural-Network-OCR",
+    "url": "https://web.archive.org/web/2012/http://www.codeproject.com/Articles/11285/Neural-Network-OCR",
     "category": "Neural Network",
     "categorySlug": "neural-network",
-    "domain": "codeproject.com",
+    "domain": "web.archive.org",
     "mediaType": "article"
   },
   {
@@ -1877,6 +1998,17 @@ export const tutorials: Tutorial[] = [
     "category": "Neural Network",
     "categorySlug": "neural-network",
     "domain": "datadan.io",
+    "mediaType": "article"
+  },
+  {
+    "title": "Practical Dependent Types in Haskell: Type-Safe Neural Networks (Part 1)",
+    "languages": [
+      "Haskell"
+    ],
+    "url": "https://blog.jle.im/entry/practical-dependent-types-in-haskell-1.html",
+    "category": "Neural Network",
+    "categorySlug": "neural-network",
+    "domain": "blog.jle.im",
     "mediaType": "article"
   },
   {
@@ -1991,6 +2123,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "video"
   },
   {
+    "title": "Neural Networks and Deep Learning",
+    "languages": [
+      "Python"
+    ],
+    "url": "http://neuralnetworksanddeeplearning.com/",
+    "category": "Neural Network",
+    "categorySlug": "neural-network",
+    "domain": "neuralnetworksanddeeplearning.com",
+    "mediaType": "article"
+  },
+  {
     "title": "SlowTorch: Implementation of PyTorch from the ground up in 100% pure Python",
     "languages": [
       "Python"
@@ -2000,6 +2143,17 @@ export const tutorials: Tutorial[] = [
     "categorySlug": "neural-network",
     "domain": "github.com",
     "mediaType": "repo"
+  },
+  {
+    "title": "Deep Learning from First Principles",
+    "languages": [
+      "Rust"
+    ],
+    "url": "https://ai.palashkantikundu.in",
+    "category": "Neural Network",
+    "categorySlug": "neural-network",
+    "domain": "ai.palashkantikundu.in",
+    "mediaType": "article"
   },
   {
     "title": "Writing a Tiny x86 Bootloader",
@@ -2021,6 +2175,17 @@ export const tutorials: Tutorial[] = [
     "category": "Operating System",
     "categorySlug": "operating-system",
     "domain": "cl.cam.ac.uk",
+    "mediaType": "article"
+  },
+  {
+    "title": "[Part 1] Simple Bootloader for Linux",
+    "languages": [
+      "Assembly"
+    ],
+    "url": "https://medium.com/@7amza.dridi/part-1-simple-bootloader-for-linux-6fec2ba20346",
+    "category": "Operating System",
+    "categorySlug": "operating-system",
+    "domain": "medium.com",
     "mediaType": "article"
   },
   {
@@ -2061,10 +2226,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C"
     ],
-    "url": "http://jamesmolloy.co.uk/tutorial_html/",
+    "url": "https://web.archive.org/web/2020/https://jamesmolloy.co.uk/tutorial_html/",
     "category": "Operating System",
     "categorySlug": "operating-system",
-    "domain": "jamesmolloy.co.uk",
+    "domain": "web.archive.org",
     "mediaType": "article"
   },
   {
@@ -2112,17 +2277,6 @@ export const tutorials: Tutorial[] = [
     "mediaType": "repo"
   },
   {
-    "title": "Malloc tutorial",
-    "languages": [
-      "C"
-    ],
-    "url": "https://danluu.com/malloc-tutorial/",
-    "category": "Operating System",
-    "categorySlug": "operating-system",
-    "domain": "danluu.com",
-    "mediaType": "article"
-  },
-  {
     "title": "Hack the virtual memory",
     "languages": [
       "C"
@@ -2153,6 +2307,17 @@ export const tutorials: Tutorial[] = [
     "category": "Operating System",
     "categorySlug": "operating-system",
     "domain": "medium.com",
+    "mediaType": "article"
+  },
+  {
+    "title": "Operating System in 1,000 Lines",
+    "languages": [
+      "C"
+    ],
+    "url": "https://operating-system-in-1000-lines.vercel.app/en/",
+    "category": "Operating System",
+    "categorySlug": "operating-system",
+    "domain": "operating-system-in-1000-lines.vercel.app",
     "mediaType": "article"
   },
   {
@@ -2249,6 +2414,17 @@ export const tutorials: Tutorial[] = [
       "C++"
     ],
     "url": "https://www.youtube.com/playlist?list=PLEETnX-uPtBXm1KEr_2zQ6K_0hoGH6JJ0",
+    "category": "Physics Engine",
+    "categorySlug": "physics-engine",
+    "domain": "youtube.com",
+    "mediaType": "video"
+  },
+  {
+    "title": "Let's Make a Physics Engine",
+    "languages": [
+      "C#"
+    ],
+    "url": "https://www.youtube.com/playlist?list=PLSlpr6o9vURwq3oxVZSimY8iC-cdd3kIs",
     "category": "Physics Engine",
     "categorySlug": "physics-engine",
     "domain": "youtube.com",
@@ -2376,6 +2552,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "repo"
   },
   {
+    "title": "Crafting Interpreters: A Bytecode Virtual Machine",
+    "languages": [
+      "C"
+    ],
+    "url": "http://craftinginterpreters.com/a-bytecode-virtual-machine.html",
+    "category": "Programming Language",
+    "categorySlug": "programming-language",
+    "domain": "craftinginterpreters.com",
+    "mediaType": "article"
+  },
+  {
     "title": "A journey explaining how to build a compiler from scratch",
     "languages": [
       "C"
@@ -2385,6 +2572,17 @@ export const tutorials: Tutorial[] = [
     "categorySlug": "programming-language",
     "domain": "github.com",
     "mediaType": "repo"
+  },
+  {
+    "title": "Compiling a Lisp_ (Lisp compiler to x86-64 machine code)",
+    "languages": [
+      "C"
+    ],
+    "url": "https://bernsteinbear.com/blog/compiling-a-lisp-0/",
+    "category": "Programming Language",
+    "categorySlug": "programming-language",
+    "domain": "bernsteinbear.com",
+    "mediaType": "article"
   },
   {
     "title": "Writing Your Own Toy Compiler Using Flex",
@@ -2417,6 +2615,17 @@ export const tutorials: Tutorial[] = [
     "category": "Programming Language",
     "categorySlug": "programming-language",
     "domain": "llvm.org",
+    "mediaType": "article"
+  },
+  {
+    "title": "How I wrote my own \"proper\" programming language in OCaml and C++",
+    "languages": [
+      "C++ & OCaml"
+    ],
+    "url": "https://mukulrathi.com/create-your-own-programming-language/intro-to-compiler/",
+    "category": "Programming Language",
+    "categorySlug": "programming-language",
+    "domain": "mukulrathi.com",
     "mediaType": "article"
   },
   {
@@ -2479,10 +2688,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "Haskell"
     ],
-    "url": "http://dev.stephendiehl.com/fun/",
+    "url": "https://web.archive.org/web/2020/https://dev.stephendiehl.com/fun/",
     "category": "Programming Language",
     "categorySlug": "programming-language",
-    "domain": "dev.stephendiehl.com",
+    "domain": "web.archive.org",
     "mediaType": "article"
   },
   {
@@ -2508,11 +2717,11 @@ export const tutorials: Tutorial[] = [
     "mediaType": "article"
   },
   {
-    "title": "Crafting interpreters: A handbook for making programming languages",
+    "title": "Crafting Interpreters: A Tree-Walk Interpreter",
     "languages": [
       "Java"
     ],
-    "url": "http://www.craftinginterpreters.com/",
+    "url": "http://craftinginterpreters.com/a-tree-walk-interpreter.html",
     "category": "Programming Language",
     "categorySlug": "programming-language",
     "domain": "craftinginterpreters.com",
@@ -2545,7 +2754,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "JavaScript"
     ],
-    "url": "https://github.com/keyanzhang/the-super-tiny-interpreter",
+    "url": "https://github.com/keyz/the-super-tiny-interpreter",
     "category": "Programming Language",
     "categorySlug": "programming-language",
     "domain": "github.com",
@@ -2849,14 +3058,25 @@ export const tutorials: Tutorial[] = [
     "mediaType": "article"
   },
   {
-    "title": "A search engine in CSS",
+    "title": "How we built the real demo for our fake CSS API client",
     "languages": [
       "CSS"
     ],
-    "url": "https://stories.algolia.com/a-search-engine-in-css-b5ec4e902e97",
+    "url": "https://www.algolia.com/blog/engineering/real-demo-fake-css-api-client",
     "category": "Search Engine",
     "categorySlug": "search-engine",
-    "domain": "stories.algolia.com",
+    "domain": "algolia.com",
+    "mediaType": "article"
+  },
+  {
+    "title": "Build your own Search Engine from Scratch in Java",
+    "languages": [
+      "Java"
+    ],
+    "url": "https://www.0xkishan.com/blogs/build-your-own-search-engine-from-scratch-in-java/",
+    "category": "Search Engine",
+    "categorySlug": "search-engine",
+    "domain": "0xkishan.com",
     "mediaType": "article"
   },
   {
@@ -2967,6 +3187,17 @@ export const tutorials: Tutorial[] = [
     "category": "Shell",
     "categorySlug": "shell",
     "domain": "danishpraka.sh",
+    "mediaType": "article"
+  },
+  {
+    "title": "Building a Cross-Platform Shell in C++: What fork() Does That \\_spawnvp() Can’t",
+    "languages": [
+      "C++"
+    ],
+    "url": "https://medium.com/@wasif.bscs24seecs/building-a-cross-platform-shell-in-c-what-fork-does-that-spawnvp-cant-02913b59d9c7",
+    "category": "Shell",
+    "categorySlug": "shell",
+    "domain": "medium.com",
     "mediaType": "article"
   },
   {
@@ -3106,10 +3337,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "Rust"
     ],
-    "url": "https://www.flenker.blog/hecto/",
+    "url": "https://philippflenker.com/hecto/",
     "category": "Text Editor",
     "categorySlug": "text-editor",
-    "domain": "flenker.blog",
+    "domain": "philippflenker.com",
     "mediaType": "article"
   },
   {
@@ -3172,10 +3403,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C#"
     ],
-    "url": "https://www.codeproject.com/Articles/859108/Writing-a-Web-Server-from-Scratch",
+    "url": "https://web.archive.org/web/2017/https://www.codeproject.com/Articles/859108/Writing-a-Web-Server-from-Scratch",
     "category": "Web Server",
     "categorySlug": "web-server",
-    "domain": "codeproject.com",
+    "domain": "web.archive.org",
     "mediaType": "article"
   },
   {
@@ -3205,7 +3436,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "Node.js"
     ],
-    "url": "https://github.com/antoaravinth/lets-build-express",
+    "url": "https://github.com/antsmartian/lets-build-express",
     "category": "Web Server",
     "categorySlug": "web-server",
     "domain": "github.com",
@@ -3381,7 +3612,7 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C++"
     ],
-    "url": "https://github.com/relativty/Relativ",
+    "url": "https://github.com/relativty/Relativty",
     "category": "Uncategorized",
     "categorySlug": "uncategorized",
     "domain": "github.com",
@@ -3392,10 +3623,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "C++"
     ],
-    "url": "https://seasonofcode.com/posts/how-x-window-managers-work-and-how-to-write-one-part-i.html",
+    "url": "https://jichu4n.com/posts/how-x-window-managers-work-and-how-to-write-one-part-i/",
     "category": "Uncategorized",
     "categorySlug": "uncategorized",
-    "domain": "seasonofcode.com",
+    "domain": "jichu4n.com",
     "mediaType": "article"
   },
   {
@@ -3498,6 +3729,17 @@ export const tutorials: Tutorial[] = [
     "mediaType": "repo"
   },
   {
+    "title": "Building an HTTP Server From Scratch using TCP",
+    "languages": [
+      "Go"
+    ],
+    "url": "https://medium.com/@devdhanadiya07/building-http-from-scratch-using-tcp-f21fbe46fd5b",
+    "category": "Uncategorized",
+    "categorySlug": "uncategorized",
+    "domain": "medium.com",
+    "mediaType": "article"
+  },
+  {
     "title": "How to Build an Android Reddit App",
     "languages": [
       "Java"
@@ -3583,6 +3825,17 @@ export const tutorials: Tutorial[] = [
     "category": "Uncategorized",
     "categorySlug": "uncategorized",
     "domain": "levelup.gitconnected.com",
+    "mediaType": "article"
+  },
+  {
+    "title": "Creating a WebSocket server using only the RFC doc (Part 1): Handshakes",
+    "languages": [
+      "JavaScript"
+    ],
+    "url": "https://medium.com/@ahanshankar/creating-a-websocket-server-using-only-the-rfc-doc-part-1-handshakes-6cbbe16552e5",
+    "category": "Uncategorized",
+    "categorySlug": "uncategorized",
+    "domain": "medium.com",
     "mediaType": "article"
   },
   {
@@ -3755,10 +4008,10 @@ export const tutorials: Tutorial[] = [
     "languages": [
       "PHP"
     ],
-    "url": "https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog",
+    "url": "https://web.archive.org/web/20260829062331/https://ilovephp.jondh.me.uk/en/tutorial/make-your-own-blog",
     "category": "Uncategorized",
     "categorySlug": "uncategorized",
-    "domain": "ilovephp.jondh.me.uk",
+    "domain": "web.archive.org",
     "mediaType": "article"
   },
   {
@@ -3960,7 +4213,7 @@ export const tutorials: Tutorial[] = [
     "mediaType": "article"
   },
   {
-    "title": "Tiny Package Manager: Learns how npm or Yarn works",
+    "title": "Tiny Package Manager: Learn how npm or Yarn works",
     "languages": [
       "TypeScript"
     ],
@@ -3977,21 +4230,21 @@ export const categories: Category[] = [
     "name": "Uncategorized",
     "slug": "uncategorized",
     "description": "Miscellaneous tutorials covering unique and diverse topics.",
-    "tutorialCount": 62,
+    "tutorialCount": 64,
     "icon": "📚"
   },
   {
     "name": "Programming Language",
     "slug": "programming-language",
     "description": "Build compilers, interpreters, and programming languages from scratch.",
-    "tutorialCount": 41,
+    "tutorialCount": 44,
     "icon": "📝"
   },
   {
     "name": "Game",
     "slug": "game",
     "description": "Learn game development by building classic and modern games from scratch.",
-    "tutorialCount": 34,
+    "tutorialCount": 35,
     "icon": "🎮"
   },
   {
@@ -4002,39 +4255,39 @@ export const categories: Category[] = [
     "icon": "⛓️"
   },
   {
-    "name": "Operating System",
-    "slug": "operating-system",
-    "description": "The ultimate systems programming challenge — build a kernel and OS from scratch.",
-    "tutorialCount": 19,
-    "icon": "🖥️"
-  },
-  {
     "name": "Neural Network",
     "slug": "neural-network",
     "description": "Build neural networks from scratch and understand deep learning fundamentals.",
-    "tutorialCount": 17,
+    "tutorialCount": 20,
     "icon": "🧬"
   },
   {
-    "name": "Bot",
-    "slug": "bot",
-    "description": "Build chatbots, social media bots, and automated agents for various platforms.",
-    "tutorialCount": 15,
-    "icon": "🤖"
+    "name": "Operating System",
+    "slug": "operating-system",
+    "description": "The ultimate systems programming challenge — build a kernel and OS from scratch.",
+    "tutorialCount": 20,
+    "icon": "🖥️"
   },
   {
     "name": "Database",
     "slug": "database",
     "description": "Understand data storage by building databases, key-value stores, and query engines.",
-    "tutorialCount": 14,
+    "tutorialCount": 16,
     "icon": "🗄️"
   },
   {
     "name": "Front-end Framework / Library",
     "slug": "front-end-framework-library",
     "description": "Understand how React, Angular, and other frameworks work under the hood.",
-    "tutorialCount": 14,
+    "tutorialCount": 16,
     "icon": "⚛️"
+  },
+  {
+    "name": "Bot",
+    "slug": "bot",
+    "description": "Build chatbots, social media bots, and automated agents for various platforms.",
+    "tutorialCount": 14,
+    "icon": "🤖"
   },
   {
     "name": "Emulator / Virtual Machine",
@@ -4047,7 +4300,7 @@ export const categories: Category[] = [
     "name": "3D Renderer",
     "slug": "3d-renderer",
     "description": "Learn computer graphics by building ray tracers, rasterizers, and 3D rendering engines from scratch.",
-    "tutorialCount": 11,
+    "tutorialCount": 12,
     "icon": "🎨"
   },
   {
@@ -4075,22 +4328,36 @@ export const categories: Category[] = [
     "name": "Git",
     "slug": "git",
     "description": "Implement version control systems and understand Git internals.",
-    "tutorialCount": 7,
+    "tutorialCount": 8,
     "icon": "📦"
   },
   {
     "name": "Physics Engine",
     "slug": "physics-engine",
     "description": "Simulate real-world physics for games and interactive applications.",
-    "tutorialCount": 7,
+    "tutorialCount": 8,
     "icon": "⚡"
   },
   {
     "name": "Shell",
     "slug": "shell",
     "description": "Create command-line shells and learn about process management and I/O.",
-    "tutorialCount": 7,
+    "tutorialCount": 8,
     "icon": "🐚"
+  },
+  {
+    "name": "AI Model",
+    "slug": "ai-model",
+    "description": "Build large language models, diffusion models, and RAG systems from the ground up.",
+    "tutorialCount": 7,
+    "icon": "🤖"
+  },
+  {
+    "name": "Search Engine",
+    "slug": "search-engine",
+    "description": "Build search indexing and retrieval systems from the ground up.",
+    "tutorialCount": 7,
+    "icon": "🔎"
   },
   {
     "name": "Augmented Reality",
@@ -4105,13 +4372,6 @@ export const categories: Category[] = [
     "description": "Learn containerization by implementing Linux containers from scratch.",
     "tutorialCount": 6,
     "icon": "🐳"
-  },
-  {
-    "name": "Search Engine",
-    "slug": "search-engine",
-    "description": "Build search indexing and retrieval systems from the ground up.",
-    "tutorialCount": 6,
-    "icon": "🔎"
   },
   {
     "name": "Text Editor",
@@ -4142,11 +4402,11 @@ export const categories: Category[] = [
     "icon": "🌐"
   },
   {
-    "name": "AI Model",
-    "slug": "ai-model",
-    "description": "Build large language models, diffusion models, and RAG systems from the ground up.",
-    "tutorialCount": 3,
-    "icon": "🤖"
+    "name": "Memory Allocator",
+    "slug": "memory-allocator",
+    "description": "Dive deep into systems programming by building your own malloc implementation.",
+    "tutorialCount": 2,
+    "icon": "🧠"
   },
   {
     "name": "Visual Recognition System",
@@ -4170,13 +4430,6 @@ export const categories: Category[] = [
     "icon": "🔗"
   },
   {
-    "name": "Memory Allocator",
-    "slug": "memory-allocator",
-    "description": "Dive deep into systems programming by building your own malloc implementation.",
-    "tutorialCount": 1,
-    "icon": "🧠"
-  },
-  {
     "name": "Processor",
     "slug": "processor",
     "description": "Design and implement CPUs and understand computer architecture at the hardware level.",
@@ -4196,37 +4449,37 @@ export const languages: Language[] = [
   {
     "name": "Python",
     "slug": "python",
-    "tutorialCount": 73
+    "tutorialCount": 77
   },
   {
     "name": "JavaScript",
     "slug": "javascript",
-    "tutorialCount": 55
+    "tutorialCount": 57
   },
   {
     "name": "C",
     "slug": "c",
-    "tutorialCount": 50
+    "tutorialCount": 53
   },
   {
     "name": "C++",
     "slug": "cpp",
-    "tutorialCount": 33
+    "tutorialCount": 35
   },
   {
     "name": "Go",
     "slug": "go",
-    "tutorialCount": 23
+    "tutorialCount": 24
   },
   {
     "name": "Rust",
     "slug": "rust",
-    "tutorialCount": 18
+    "tutorialCount": 20
   },
   {
     "name": "C#",
     "slug": "csharp",
-    "tutorialCount": 15
+    "tutorialCount": 16
   },
   {
     "name": "Node.js",
@@ -4241,7 +4494,7 @@ export const languages: Language[] = [
   {
     "name": "Java",
     "slug": "java",
-    "tutorialCount": 10
+    "tutorialCount": 12
   },
   {
     "name": "Nim",
@@ -4251,17 +4504,22 @@ export const languages: Language[] = [
   {
     "name": "Haskell",
     "slug": "haskell",
-    "tutorialCount": 6
+    "tutorialCount": 7
   },
   {
     "name": "TypeScript",
     "slug": "typescript",
-    "tutorialCount": 5
+    "tutorialCount": 6
   },
   {
     "name": "PHP",
     "slug": "php",
-    "tutorialCount": 5
+    "tutorialCount": 6
+  },
+  {
+    "name": "Assembly",
+    "slug": "assembly",
+    "tutorialCount": 4
   },
   {
     "name": "any",
@@ -4269,13 +4527,13 @@ export const languages: Language[] = [
     "tutorialCount": 4
   },
   {
-    "name": "F#",
-    "slug": "fsharp",
+    "name": "Scala",
+    "slug": "scala",
     "tutorialCount": 3
   },
   {
-    "name": "Assembly",
-    "slug": "assembly",
+    "name": "F#",
+    "slug": "fsharp",
     "tutorialCount": 3
   },
   {
@@ -4286,11 +4544,6 @@ export const languages: Language[] = [
   {
     "name": "Kotlin",
     "slug": "kotlin",
-    "tutorialCount": 2
-  },
-  {
-    "name": "Scala",
-    "slug": "scala",
     "tutorialCount": 2
   },
   {
@@ -4341,6 +4594,11 @@ export const languages: Language[] = [
   {
     "name": "Verilog",
     "slug": "verilog",
+    "tutorialCount": 1
+  },
+  {
+    "name": "C++ & OCaml",
+    "slug": "c-ocaml",
     "tutorialCount": 1
   },
   {
